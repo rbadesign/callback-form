@@ -7,13 +7,10 @@ http://rbadesign.us
 Инструкция по применению:
 
 1. Включить скрип в список загружаемых скрипров на странице
-2. На странице, где должна быть размещена форма поместить тег 
-/*
-<div id='callback-form-wrapper'></div>
-*/
+2. На странице, где должна быть размещена форма поместить тег <div id='callback-form-wrapper'></div>
  
 Пример:
-/*
+
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 <script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
@@ -59,4 +56,3 @@ http://rbadesign.us
 
 <script src="/CMSScripts/Custom/mobile.js" type="text/javascript"></script>
 <script src="/CMSScripts/Custom/callback-form.js" type="text/javascript"></script>
-*/
