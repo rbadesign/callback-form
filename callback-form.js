@@ -10,8 +10,8 @@
 //
 // Инструкция по применению:
 //
-// 1. Включить скрип в список загружаемых скрипров на странице
-// 2. На странице, где должна быть размещена форма поместить тег <div id='callback-form-wrapper'></div>
+// 1. Включить скрип в список загружаемых скриптов на странице
+// 2. На странице, где должна быть размещена форма, поместить тег <div id='callback-form-wrapper'></div>
 // 
 // Пример:
 /*
@@ -398,6 +398,17 @@
 		var wrapper = "#callback-form-wrapper";
 		if($(wrapper).length>0) createCallbackForm(wrapper);
 	});
+	
+	$(document).ready(function(){
+		$("a").attr("data-ajax","false");
+	});
+	$(document).ajaxStop(function(){
+		$("a").attr("data-ajax","false");
+	});
+	
+	$(document).bind("mobileinit", function(){
+		$.mobile.ajaxEnabled = false;
+	});	
 	
 	debugWrite("callback","form");
 })(jQuery);
