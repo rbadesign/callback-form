@@ -16,7 +16,6 @@
 // Пример:
 /*
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 <script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
 <script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
 <script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
@@ -67,14 +66,16 @@
 <form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 <input type=hidden name="oid" value="00De0000001JESv">
 <input type=hidden name="retURL" value="http://uat.cryo-cell.com/resources/request-forms/thank-you">
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" class="required" /><br>
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="required" /><br>
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" class="required" /><br>
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" class="required" /><br>
-Due Date:<span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="12" type="text" /></span><br>
+<table class="EditingFormTable"><tbody><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="first_name">First Name</label></td><td><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="last_name">Last Name</label></td><td><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="email">Email</label></td><td><input  id="email" maxlength="80" name="email" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="12" type="text" /></span></td></tr></tbody></table>
 <input type="submit" name="submit" class="save" onSubmit="javascript: void(0)">
 </form>
 */})
+
 	
 	var thankYouHTML = hereDoc(function() {/*!
 	<h2>Thank you</h2> 
@@ -117,15 +118,17 @@ Due Date:<span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name
 	  
 		// repeat for each parameter
 		item.find("input").each(function(index, element) {
-			var input = document.createElement("input");
-			input.type = "hidden";
-			debugWrite("element.name",element.name);
-			input.name = element.name;
-			debugWrite("input.name",input.name);
-			debugWrite("element.value",element.value);
-			input.value = element.value;
-			debugWrite("input.value",input.value);
-			form.appendChild(input);
+			if(element.name!="submit"){
+				var input = document.createElement("input");
+				input.type = "hidden";
+				debugWrite("element.name",element.name);
+				input.name = element.name;
+				debugWrite("input.name",input.name);
+				debugWrite("element.value",element.value);
+				input.value = element.value;
+				debugWrite("input.value",input.value);
+				form.appendChild(input);
+			}
 		});
 	  
 		document.body.appendChild(form);
