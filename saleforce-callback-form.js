@@ -10,55 +10,35 @@
 //
 // Инструкция по применению:
 //
-// 1. Включить скрип в список загружаемых скриптов на странице
-// 2. На странице, где должна быть размещена форма, поместить тег <div id='saleforce-callback-form-wrapper'></div>
-// 
-// Пример:
+// 1. Включить сам скрип и связанные с ним скрипты в список скриптов сайта
+// 2. На странице, где должна быть размещена форма, поместить Web part с кодом или просто HTML код
+// со следующим кодом:
 /*
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-<script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
-<script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
-<script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+	<script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/modernizr.js"></script>
+	<script src="/CMSScripts/Custom/date.format.js"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-en.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-es.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-it.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-zh-TW.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/saleforce-callback-form.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	// Установка глобальной переменной culture равной коду текущей культуры
+	(function($){
 
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.core" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.jqm" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.android" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.android-ics" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.ios" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.sense-ui" rel="stylesheet" type="text/css" />
-    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.wp" rel="stylesheet" type="text/css" />
+		$.culture = "{$=en|es-ES=es|ru-RU=ru$}";
 
-    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
-    <script src="/CMSScripts/Custom//modernizr.js"></script>
-
-    <script src="/CMSScripts/Custom//mobiscroll.core.js" type="text/javascript"></script>
-
-    <script src="/CMSScripts/Custom//mobiscroll.datetime.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.select.js" type="text/javascript"></script>
-
-    <script src="/CMSScripts/Custom//mobiscroll.jqm.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.ios.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.android.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.android-ics.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.wp.js" type="text/javascript"></script>
-
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.en.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.cn.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.tw.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.ru.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.de.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.es.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.fr.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.hu.js" type="text/javascript"></script>    
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.it.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.no.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.pt-BR.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.zh.js" type="text/javascript"></script>
-
-<script src="/CMSScripts/Custom/saleforce-callback-form.js" type="text/javascript"></script>
+	})(jQuery);
+	</script>
+	<div id='saleforce-callback-form-wrapper'></div>
 */
-//
 ////////////////////////////////////////////////////////////////////////////////////////
 
 (function ($) {
@@ -67,13 +47,9 @@
 <form id="callbackForm" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 <!-- Production 
 <form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"> -->
-<!-- Production 
 <input type=hidden name="oid" value="00D30000001HWbP">
-<input type=hidden name="retURL" value="http://www.cryo-cell.com/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo">
--->
+<input type=hidden name="retURL" value="/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo">
 <!-- Testing  -->
-<input type=hidden name="oid" value="00De0000001JESv"/>
-<input type=hidden name="retURL" value="http://uat.cryo-cell.com/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo"/>
 <input type="hidden" name="00Ne0000000du6u"id="00Ne0000000du6u"  title="Primary Contact Role" value="--None--" />
 
 <!-- Debugging Values
@@ -89,13 +65,60 @@
 <label for="last_name">Last Name</label></td><td><input  id="last_name" maxlength="80" name="last_name" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
 <label for="email">Email</label></td><td><input  id="email" maxlength="80" name="email" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
 <label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="40" type="text" /></span></td></tr>
+<label for="due_date">Due Date:</label></td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="40" type="date" class="required today" /></span></td></tr>
 <tr></tr>
 <tr><td></td><td><input type="submit" name="Submit" value="Submit" class="save" onSubmit="javascript: void(0)"></td></tr>
 </tbody></table>
 </form>
 */})
 
+	// Названия полей формы обратной связи
+	// Задаются в виде обычного текста
+	var formLabels = {
+		en: {
+			first_name: "First Name",
+			last_name: "Last Name",
+			due_date: "Due Date:",
+			phone: "Phone",
+			email: "Email",
+			doctor: "Doctor",
+		},
+		es: {
+			first_name: "Nombre",
+			last_name: "Apellido",
+			due_date: "Fecha estimada de parto",
+			phone: "Teléfono",
+			email: "Correo electrónico",
+		},
+		ru: {
+			first_name: "Имя",
+			last_name: "Фамилия",
+			due_date: "Ожидаемая дата родов",
+			phone: "Номер телефона",
+			email: "Электронная почта",
+		},
+		it: {
+			first_name: "Nome",
+			last_name: "Cognome",
+			due_date: "Data di arrivo",
+			phone: "Numero di telefono",
+			email: "Email",
+		},
+		cn: {
+			first_name: "名",
+			last_name: "姓",
+			due_date: "预产期",
+			phone: "电话号码",
+			email: "电子邮件",
+		},
+		tw: {
+			first_name: "名",
+			last_name: "姓",
+			due_date: "預產期",
+			phone: "電話號碼",
+			email: "電子郵件",
+		}
+	};
 	
 	var thankYouHTML = hereDoc(function() {/*!
 	<h2>Thank you</h2> 
@@ -104,6 +127,25 @@ Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000d
 	
 	var url = false;
 	
+	// This method is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other 
+	// implementations of the standard. To make it work you need to add following code at the top of your script:
+	if (!Array.prototype.forEach)
+	{
+	  Array.prototype.forEach = function(fun /*, thisp*/)
+	  {
+		var len = this.length;
+		if (typeof fun != "function")
+		  throw new TypeError();
+	
+		var thisp = arguments[1];
+		for (var i = 0; i < len; i++)
+		{
+		  if (i in this)
+			fun.call(thisp, this[i], i, this);
+		}
+	  };
+	}
+
 	function hereDoc(f) {
 	  return f.toString().
 		  replace(/^[^\/]+\/\*!?/, '').
@@ -226,30 +268,21 @@ Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000d
 			debugWrite("$.url error",e);
 		}
 		
+		// Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
+		lang = $.culture;
+		
+		// Перевод заголовков полей формы на указанный язык
+		for(var lblFor in formLabels[lang]) {
+			page.find("label[for='"+lblFor+"']").text(formLabels[lang][lblFor]);
+		}
+		
 		debugWrite("Устанавливаем типы полей ввода","start");
 		$("input[name*='expected_delivery_date']",page).attr("type","date");
 		$("input[name*='due_date']",page).attr("type","date");
 		$("input[name*='phone']",page).attr("type","tel");
 		$("input[name*='mail']",page).attr("type","email");
 		debugWrite("Устанавливаем типы полей ввода","end");
-		
-		debugWrite("Скрываем не используемые поля","start");
-		$("label[id*='url']",page).parent().hide();
-		$("label[id*='ipad_id']",page).parent().hide();
-		$("input[id*='url']",page).parent().hide();
-		$("input[id*='ipad_id']",page).parent().hide();
-		//$("input[type='submit']",page).parent().hide();
-		debugWrite("Скрываем не используемые поля","end");
-		
-		debugWrite("Заполняем поля ipad_id и url","start");
-		try {
-			$("input[name*='ipad_id']",page).val("Mobile Web Site");
-			$("input[name*='url']",page).val(window.location.toString());
-		} catch (e) {
-			debugWrite('error',e);
-		}
-		debugWrite("Заполняем поля ipad_id и url","end");
-	
+			
 		debugWrite("Заполняем элементы ввода значениями переданными в параметрах","start");
 		try {
 			url.attr("query").split("&").forEach(function (value,index) {
@@ -265,11 +298,27 @@ Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000d
 		// Проверка встроенной поддержки для <input type="date">
 		// Если нет встроенной поддержки для <input type="date">,
 		// то заменяем <input type="date"> на <input type="text">
-		// и обрабатываем поле с помощью mobiscroll
-		if (!Modernizr.inputtypes.date) {
-			page.find("input[type='date']").attr("type","text").mobiscroll().date($.extend({theme:"jqm"},$.mobiscroll.i18n['en']));
-	
-		}
+		// и назначаем обработчиком jquery.datepicker
+//		if (!Modernizr.inputtypes.date) {
+			page.find("input[type='date']").each(function(index, element) {
+				// Обработка поля due_date если нет встроенной поддержки для <input type="date">
+				debugWrite("Обработка поля due_date если нет встроенной поддержки для <input type='date'>","start");
+               	$(element).attr("type","text"); 
+				$(element).datepicker(
+						$.extend({
+							showButtonPanel: true,
+							minDate: 0, 
+							maxDate: "+10M",
+						}, $.datepicker.regional[ lang ] ));
+				debugWrite("Обработка поля due_date если нет встроенной поддержки для <input type='date'>","end");
+            });	
+//		}
+
+		debugWrite("Установка текущей даты","start");
+		page.find(".today").each(function(index, element) {
+			$(element).val((new Date()).format($.datepicker.regional[ lang ].dateFormat+"yy"));
+		});
+		debugWrite("Установка текущей даты","end");
 		
 		debugWrite("Установка маски ввода (999) 999-9999","start");
 		try {
