@@ -16,6 +16,7 @@
 // Пример:
 /*
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 <script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
 <script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
 <script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
@@ -63,16 +64,35 @@
 (function ($) {
 	
 	var callbackFormHTML = hereDoc(function() {/*!
-<form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-<input type=hidden name="oid" value="00De0000001JESv">
-<input type=hidden name="retURL" value="http://uat.cryo-cell.com/resources/request-forms/thank-you">
+<form id="callbackForm" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<!-- Production 
+<form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"> -->
+<!-- Production 
+<input type=hidden name="oid" value="00D30000001HWbP">
+<input type=hidden name="retURL" value="http://www.cryo-cell.com/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo">
+-->
+<!-- Testing  -->
+<input type=hidden name="oid" value="00De0000001JESv"/>
+<input type=hidden name="retURL" value="http://uat.cryo-cell.com/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo"/>
+<input type="hidden" name="00Ne0000000du6u"id="00Ne0000000du6u"  title="Primary Contact Role" value="--None--" />
+
+<!-- Debugging Values
+<input type="hidden" name="debug" value="1" />
+<input type="hidden" name="debugEmail" value='omikulinsky@cryo-cell.com' />
+-->
+
+<input type="hidden" name="company" id="company" value="unBounce" />
+<input type="hidden" name="lead_source" id="lead_source"  value="http://www.cryo-cell.com/request-information" />
+
 <table class="EditingFormTable"><tbody><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="first_name">First Name</label></td><td><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="last_name">Last Name</label></td><td><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="email">Email</label></td><td><input  id="email" maxlength="80" name="email" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="20" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="12" type="text" /></span></td></tr></tbody></table>
-<input type="submit" name="submit" class="save" onSubmit="javascript: void(0)">
+<label for="first_name">First Name</label></td><td><input  id="first_name" maxlength="40" name="first_name" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="last_name">Last Name</label></td><td><input  id="last_name" maxlength="80" name="last_name" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="email">Email</label></td><td><input  id="email" maxlength="80" name="email" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+Due Date:</td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="40" type="text" /></span></td></tr>
+<tr></tr>
+<tr><td></td><td><input type="submit" name="Submit" value="Submit" class="save" onSubmit="javascript: void(0)"></td></tr>
+</tbody></table>
 </form>
 */})
 
