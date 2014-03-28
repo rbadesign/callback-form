@@ -1,12 +1,13 @@
 /*
  * Translation by: Ivan Gomes <contato@ivangomes.com.br>
- *
  */
 (function ($) {
     $.mobiscroll.i18n['pt-BR'] = $.extend($.mobiscroll.i18n['pt-BR'], {
         // Core
         setText: 'Selecionar',
         cancelText: 'Cancelar',
+        clearText: 'Claro',
+        selectedText: 'Selecionado',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddMMyy',
@@ -22,10 +23,17 @@
         timeFormat: 'HH:ii',
         timeWheels: 'HHii',
         yearText: 'Ano',
+        nowText: 'Agora',
+        pmText: 'da tarde',
+        amText: 'da manhã',
         // Calendar component
         dateText: 'Data',
         timeText: 'Tempo',
         calendarText: 'Calendário',
+        closeText: 'Fechar',
+        // Daterange component
+        fromText: 'In&iacute;cio',
+        toText: 'Fim',
         // Measurement components
         wholeText: 'Inteiro',
         fractionText: 'Fração',

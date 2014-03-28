@@ -3,6 +3,8 @@
         // Core
         setText: 'Aceptar',
         cancelText: 'Cancelar',
+        clearText: 'Claro',
+        selectedText: 'Seleccionado',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: 'A&ntilde;o',
         nowText: 'Ahora',
+        pmText: 'pm',
+        amText: 'am',
         // Calendar component
         dateText: 'Fecha',
         timeText: 'Tiempo',
         calendarText: 'Calendario',
+        closeText: 'Cerrar',
+        // Daterange component
+        fromText: 'Iniciar',
+        toText: 'Final',
         // Measurement components
         wholeText: 'Entero',
         fractionText: 'Fracción',

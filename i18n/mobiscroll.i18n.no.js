@@ -3,6 +3,8 @@
         // Core
         setText: 'OK',
         cancelText: 'Avbryt',
+        clearText: 'Tømme',
+        selectedText: 'Valgt',
         // Datetime component
         dateFormat: 'dd.mm.yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: 'År',
         nowText: 'Nå',
+        pmText: 'pm',
+        amText: 'am',
         // Calendar component
         dateText: 'Dato',
         timeText: 'Tid',
         calendarText: 'Kalender',
+        closeText: 'Lukk',
+        // Daterange component
+        fromText: 'Start',
+        toText: 'End',
         // Measurement components
         wholeText: 'Hele',
         fractionText: 'Fraksjon',

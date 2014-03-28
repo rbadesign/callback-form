@@ -7,21 +7,21 @@
 // http://rbadesign.us
 //
 // Версия для мобильной версии сайта
+// Совместимо с мобильной версией сайта
 //
 // Инструкция по применению:
 //
-// 1. Включить скрип в список загружаемых скриптов на странице
+// 1. Сам скрипт и связанные с ним скрипты и стили объявить в хидере страницы 
 // 2. На странице, где должна быть размещена форма, поместить тег <div id='callback-form-wrapper'></div>
 // 
 // Пример:
 /*
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-<script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
-<script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
-<script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
-<link href="/CMSPages/GetResource.ashx?stylesheetname=jQueryMobileCryoCell" type="text/css" rel="stylesheet"/>
-<link href="/CMSPages/GetResource.ashx?stylesheetname=Mobile" type="text/css" rel="stylesheet"/>
+
+	<script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/modernizr.js"></script>
+	<script src="/CMSScripts/Custom/date.format.js"></script>
 
     <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.core" rel="stylesheet" type="text/css" />
     <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.jqm" rel="stylesheet" type="text/css" />
@@ -32,34 +32,39 @@
     <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.wp" rel="stylesheet" type="text/css" />
 
     <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
-    <script src="/CMSScripts/Custom//modernizr.js"></script>
+    <script src="/CMSScripts/Custom/modernizr.js"></script>
 
-    <script src="/CMSScripts/Custom//mobiscroll.core.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.core.js" type="text/javascript"></script>
 
-    <script src="/CMSScripts/Custom//mobiscroll.datetime.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.select.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.select.js" type="text/javascript"></script>
 
-    <script src="/CMSScripts/Custom//mobiscroll.jqm.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.ios.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.android.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.android-ics.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.wp.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.jqm.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.ios.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.android.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.android-ics.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.wp.js" type="text/javascript"></script>
 
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.en.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.cn.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.tw.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.ru.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.de.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.es.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.fr.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.hu.js" type="text/javascript"></script>    
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.it.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.no.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.pt-BR.js" type="text/javascript"></script>
-    <script src="/CMSScripts/Custom//mobiscroll.i18n.zh.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.en.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.cn.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.tw.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.ru.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.es.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.it.js" type="text/javascript"></script>
 
-<script src="/CMSScripts/Custom/mobile.js" type="text/javascript"></script>
-<script src="/CMSScripts/Custom/callback-form.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/callback-form.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	(function($){
+
+		// Устанавливаем глобальную переменную culture равной коду текущей культуры
+		$.culture = "{$=en|es-ES=es|ru-RU=ru$}";
+
+	})(jQuery);
+	
+	----------------------------------------------------------
+	
+	<div id='callback-form-wrapper'></div>
 */
 //
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +288,14 @@
 		// то заменяем <input type="date"> на <input type="text">
 		// и обрабатываем поле с помощью mobiscroll
 		if (!Modernizr.inputtypes.date) {
-			page.find("input[type='date']").attr("type","text").mobiscroll().date($.extend({theme:"jqm"},$.mobiscroll.i18n['en']));
+			page.find("input[type='date']").attr("type","text")
+				.mobiscroll()
+					.date(
+						$.extend(
+							{theme:"jqm"},
+							$.mobiscroll.i18n['en']
+						)
+					);
 		}
 		
 		debugWrite("Установка маски ввода (999) 999-9999","start");

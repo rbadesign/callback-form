@@ -1,0 +1,22 @@
+input.error, textarea.error {
+	border: 2px;
+	border-style: solid;
+	border-color: red;
+}
+
+label.error {
+//	display: none !important;
+//	background-image: url(../images/desktop-alert-icon-32x32.png);
+//	background-repeat: no-repeat;
+//	background-position: center center;
+//	vertical-align: middle;
+//	display: inline-block;
+//	float: right;
+//	height: 32px;
+//	width: 32px;
+//	margin-left: 0px;
+//	margin-right: 0px;
+//	font-size: 0;
+//    text-indent: -9999px;                 /* sends the text off-screen */
+//    white-space: nowrap;            /* because only the first line is indented */
+}

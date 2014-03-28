@@ -3,6 +3,8 @@
         // Core
         setText: '确定',
         cancelText: '取消',
+        clearText: '明确',
+        selectedText: '选',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: '年',
         nowText: '当前',
+        pmText: '下午',
+        amText: '上午',
         // Calendar component
         dateText: '日',
         timeText: '时间',
         calendarText: '日历',
+        closeText: '关闭',
+        // Daterange component
+        fromText: 'Start',
+        toText: 'End',
         // Measurement components
         wholeText: 'Whole',
         fractionText: 'Fraction',

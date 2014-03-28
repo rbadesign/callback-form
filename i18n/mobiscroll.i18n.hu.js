@@ -3,6 +3,8 @@
         // Core
         setText: 'OK',
         cancelText: 'Mégse',
+        clearText: 'Törlés',
+        selectedText: 'Kiválasztva',
         // Datetime component
         dateFormat: 'yy.mm.dd',
         dateOrder: 'yymmdd',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: 'Év',
         nowText: 'Most',
+        pmText: 'de',
+        amText: 'du',
         // Calendar component
         dateText: 'Dátum',
         timeText: 'Idő',
         calendarText: 'Naptár',
+        closeText: 'Bezár',
+        // Daterange component
+        fromText: 'Eleje',
+        toText: 'Vége',
         // Measurement components
         wholeText: 'Egész',
         fractionText: 'Tört',

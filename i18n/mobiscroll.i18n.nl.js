@@ -2,7 +2,9 @@
     $.mobiscroll.i18n.nl = $.extend($.mobiscroll.i18n.nl, {
         // Core
         setText: 'Instellen',
-        cancelText: 'Annuleer',
+        cancelText: 'Annuleren',
+        clearText: 'Duidelijk',
+        selectedText: 'Gekozen',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddmmyy',
@@ -15,14 +17,20 @@
         monthNamesShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
         monthText: 'Maand',
         secText: 'Seconden',
-        timeFormat: 'hh:ii A',
-        timeWheels: 'hhiiA',
+        timeFormat: 'HH:ii',
+        timeWheels: 'hhii',
         yearText: 'Jaar',
         nowText: 'Nu',
+        pmText: 'pm',
+        amText: 'am',
         // Calendar component
         dateText: 'Datum',
         timeText: 'Tijd',
         calendarText: 'Kalender',
+        closeText: 'Sluiten',
+        // Daterange component
+        fromText: 'Start',
+        toText: 'Einde',
         // Measurement components
         wholeText: 'geheel',
         fractionText: 'fractie',
@@ -34,7 +42,7 @@
         startText: 'Start',
         stopText: 'Stop',
         resetText: 'Reset',
-        lapText: 'Lap',
+        lapText: 'Ronde',
         hideText: 'Verbergen'
     });
 })(jQuery);

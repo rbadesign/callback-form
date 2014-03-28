@@ -3,6 +3,8 @@
         // Core
         setText: 'OK',
         cancelText: 'Abbrechen',
+        clearText: 'Löschen',
+        selectedText: 'Ausgewählt',
         // Datetime component
         dateFormat: 'dd.mm.yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: 'Jahr',
         nowText: 'Jetzt',
+        pmText: 'nachm.',
+        amText: 'vorm.',
         // Calendar component
         dateText: 'Datum',
         timeText: 'Zeit',
         calendarText: 'Kalender',
+        closeText: 'Schließen',
+        // Daterange component
+        fromText: 'Von',
+        toText: 'Um',
         // Measurement components
         wholeText: 'Ganze Zahl',
         fractionText: 'Bruchzahl',
@@ -31,10 +39,10 @@
         labels: ['Jahre', 'Monate', 'Tage', 'Stunden', 'Minuten', 'Sekunden', ''],
         labelsShort: ['Yrs', 'Mths', 'Days', 'Hrs', 'Mins', 'Secs', ''],
         // Timer component
-        startText: 'Start',
-        stopText: 'Stop',
-        resetText: 'Reset',
+        startText: 'Starten',
+        stopText: 'Stoppen',
+        resetText: 'Zurücksetzen',
         lapText: 'Lap',
-        hideText: 'Hide'
+        hideText: 'Ausblenden'
     });
 })(jQuery);

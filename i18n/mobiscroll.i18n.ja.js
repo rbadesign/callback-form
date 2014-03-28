@@ -3,6 +3,8 @@
         // Core
         setText: 'セット',
         cancelText: 'キャンセル',
+        clearText: 'クリア',
+        selectedText: '選択',
         // Datetime component
         dateFormat: 'yy年mm月dd日',
         dateOrder: 'yymmdd',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: '年',
         nowText: '今',
+        pmText: '午後',
+        amText: '午前',
         // Calendar component
         dateText: '日付',
         timeText: '時間',
         calendarText: 'カレンダー',
+        closeText: 'クローズ',
+        // Daterange component
+        fromText: '開始',
+        toText: '終わり',
         // Measurement components
         wholeText: '全数',
         fractionText: '分数',

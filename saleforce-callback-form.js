@@ -7,37 +7,108 @@
 // http://rbadesign.us
 //
 // Версия для Salesforce 
+// Совместимо с основной версией сайта
+// Совместимо с мобильной версией сайта
+//
+// Валидация полей:
+// 1. Поля с датой проверяются на не превышение 10-ти месяцев от текущей даты
+// 2. Телефон проверяется на номер в формате США
+// 3. Email проверяется на формат
+//
+// Используются нижеследующие компоненты:
+// jQuery http://jquery.com
+// jQuery UI https://jqueryui.com
+// jQuery Timepicker Addon https://github.com/trentrichardson/jQuery-Timepicker-Addon
+// jQuery Validation Plugin http://jqueryvalidation.org
+// Mobiscroll https://github.com/acidb/mobiscroll
 //
 // Инструкция по применению:
 //
-// 1. Включить сам скрип и связанные с ним скрипты в список скриптов сайта
-// 2. На странице, где должна быть размещена форма, поместить Web part с кодом или просто HTML код
-// со следующим кодом:
+// 1. Сам скрипт и связанные с ним скрипты и стили объявить в хидере страницы 
+// 1.1. Для страниц мобильной версии исключить скрипт jquery
+// 2. На странице, где должна быть размещена форма, поместить <div id='saleforce-callback-form-wrapper'></div>
 /*
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=jquery-ui-timepicker-addon" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.core" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.jqm" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.android" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.android-ics" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.ios" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.sense-ui" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.wp" rel="stylesheet" type="text/css" />
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=mobiscroll.animation" rel="stylesheet" type="text/css" />
+
+//	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-	<script src="/CMSScripts/Custom/jquery.validate.js" type="text/javascript"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/jquery.maskedinput.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/purl.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/modernizr.js"></script>
 	<script src="/CMSScripts/Custom/date.format.js"></script>
+
 	<script src="/CMSScripts/Custom/jquery.ui.datepicker-en.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/jquery.ui.datepicker-es.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/jquery.ui.datepicker-it.js" type="text/javascript"></script>
 	<script src="/CMSScripts/Custom/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
-	<script src="/CMSScripts/Custom/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
-	<script src="/CMSScripts/Custom/jquery.ui.datepicker-zh-TW.js" type="text/javascript"></script>
-	<script src="/CMSScripts/Custom/saleforce-callback-form.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-cn.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery.ui.datepicker-tw.js" type="text/javascript"></script>
+ 
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-en.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-es.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-it.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-ru.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-cn.js" type="text/javascript"></script>
+	<script src="/CMSScripts/Custom/jquery-ui-timepicker-tw.js" type="text/javascript"></script>
+ 
+    <script src="/CMSScripts/Custom/mobiscroll.core.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.select.js" type="text/javascript"></script>
+
+    <script src="/CMSScripts/Custom/mobiscroll.jqm.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.ios.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.android.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.android-ics.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.wp.js" type="text/javascript"></script>
+
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.en.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.cn.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.tw.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.ru.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.es.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/mobiscroll.i18n.it.js" type="text/javascript"></script>
+
+    <script src="/CMSScripts/Custom/phoneUS.js" type="text/javascript"></script>
+    <script src="/CMSScripts/Custom/zipcodeUS.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
-	// Установка глобальной переменной culture равной коду текущей культуры
 	(function($){
-
+		// Устанавливаем глобальную переменную culture равной коду текущей культуры
 		$.culture = "{$=en|es-ES=es|ru-RU=ru$}";
-
 	})(jQuery);
 	</script>
+	<script src="/CMSScripts/Custom/saleforce-callback-form.js" type="text/javascript"></script>
+
+    <link href="/CMSPages/GetResource.ashx?stylesheetname=saleforce-callback-form" rel="stylesheet" type="text/css" />
+
+	---------------------------------------------------
+
 	<div id='saleforce-callback-form-wrapper'></div>
+*/
+//
+// Использование:
+// http://www.cryo-cell.com/mobile/contact
+// http://www.cryo-cell.com/request-information
+//
+/*
+Особенности использования в Kentico:
+1. Kentico переносит ВСЕ скрипты из контента в хидер
+2. Kentico загружает контент асинхронно
+3. Поэтому скрипт может увидеть переменные, определённые в контенте, только если он сам будет объявлен в контенте. В этом случае объявление переменных и объявление скрипта будут вместе перенесены в хидер сразу же после загрузки контента, в порядке их объявления.
+4. Скрипту объявленному в контенте недоступны переменные и события объявленные в хидере, поскольку на момент начала генерации страницы начальный хидер уже создан и работает, а контент ещё отсутствует и не проинициализирован, а когда контент наконец-то загрузится, то скрипты в хидере уже завершат свою работу и новым скриптпм перенесённым из контента в хидер просто уже ничего не достаётся из начальных событий - это основное отличие страниц Kentico от обычных страниц без асинхронной загрузки контента.
+6. В частности по этому попытки обработать события jQueryMobile в прилинкованном скрипте в контенте безуспешны
+8. Соответственно, события onload, ready ведут себя по другому, поскольку, поскольку из-за асинхронности Kentico они создаются не тогда, когда страница полностью загружена и готова к использованию, а в момент завершения текущего пула асинхронных загрузок, в который входит данный прилинкованный скрипт
 */
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,13 +118,17 @@
 <form id="callbackForm" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 <!-- Production 
 <form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"> -->
+<!-- We need to add some logic there to pass a language used on the form to Salesforce as a new custom field and also after the form post to redirect to a localized thank you page. -->
+<input type=hidden name="culture" value="en">
+<input type=hidden name="dateFormat" value="">
 <input type=hidden name="oid" value="00D30000001HWbP">
 <input type=hidden name="retURL" value="/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo">
 <!-- Testing  -->
 <input type="hidden" name="00Ne0000000du6u"id="00Ne0000000du6u"  title="Primary Contact Role" value="--None--" />
 
-<!-- Debugging Values
 <input type="hidden" name="debug" value="1" />
+<input type="hidden" name="debugEmail" value='protopopov@rba-design.ru' />
+<!-- Debugging Values
 <input type="hidden" name="debugEmail" value='omikulinsky@cryo-cell.com' />
 -->
 
@@ -64,11 +139,11 @@
 <label for="first_name">First Name</label></td><td><input  id="first_name" maxlength="40" name="first_name" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
 <label for="last_name">Last Name</label></td><td><input  id="last_name" maxlength="80" name="last_name" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
 <label for="email">Email</label></td><td><input  id="email" maxlength="80" name="email" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="40" type="text" class="required" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
-<label for="due_date">Due Date:</label></td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="40" type="date" class="required today" /></span></td></tr>
-<tr></tr>
-<tr><td></td><td><input type="submit" name="Submit" value="Submit" class="save" onSubmit="javascript: void(0)"></td></tr>
+<label for="phone">Phone</label></td><td><input  id="phone" maxlength="40" name="phone" size="40" type="text" class="required phoneUS" /></td></tr><tr class="" style=""><td class="EditingFormLabelCell">
+<label for="due_date">Due Date:</label></td><td><span class="dateInput dateOnlyInput"><input  id="00Ne0000000du5U" name="00Ne0000000du5U" size="40" type="date" class="required today date10M" /></span></td></tr>
 </tbody></table>
+
+<center><input data-role="button" type="submit" name="Submit" value="Submit" class="save" onSubmit="javascript: void(0)"></center>
 </form>
 */})
 
@@ -117,6 +192,28 @@
 			due_date: "預產期",
 			phone: "電話號碼",
 			email: "電子郵件",
+		}
+	};
+	// Значения полей формы обратной связи
+	// Задаются в виде обычного текста
+	var formValues = {
+		en: {
+			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+		},
+		es: {
+			retURL: "/resources/request-forms/thank-you-es?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+		},
+		ru: {
+			retURL: "/resources/request-forms/thank-you-ru?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+		},
+		it: {
+			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+		},
+		cn: {
+			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+		},
+		tw: {
+			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
 		}
 	};
 	
@@ -257,10 +354,33 @@
 		page.append(thankYouHTML);
 	}
 	
-	function createCallbackForm(wrapper) {
-		var page = $(wrapper);
-		page.append(callbackFormHTML);
+	function flatTable(t) {
+		$("tr",t).each(function(index, row) {
+			var html = "<div data-role='fieldcontain'>";
+			$("th,td",row).each(function(index, element) {
+				html += $(element).html()
+			});
+			html += "</div>";
+			$(t).before($(html));
+         });
+		$(t).remove();
+	}
 	
+	function createCallbackForm(wrapper) {
+		debugWrite("createCallbackForm","start");
+		debugWrite("typeof $.mobile",typeof $.mobile);
+		debugWrite("$.isMobile",$.isMobile);
+		debugWrite("$.culture",$.culture);
+		var page = $(callbackFormHTML);
+		$(wrapper).after(page);
+		$(wrapper).remove();
+		
+		if ($.isMobile) {
+			$("table",page).each(function(index, element) {
+                flatTable(element);
+            });
+		}
+		
 		// Разбор строки запроса на элементы
 		try {
 			url = $.url(window.location.toString());
@@ -269,12 +389,20 @@
 		}
 		
 		// Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
-		lang = $.culture;
+		var lang = $.culture||"en";
 		
 		// Перевод заголовков полей формы на указанный язык
 		for(var lblFor in formLabels[lang]) {
 			page.find("label[for='"+lblFor+"']").text(formLabels[lang][lblFor]);
 		}
+		// Установка значений полей формы в предопределённые значения
+		for(var inputName in formValues[lang]) {
+			page.find("input[name='"+inputName+"']").val(formValues[lang][inputName]);
+		}
+		// Установка поля языка
+		// We need to add some logic there to pass a language used on the form to Salesforce as a new custom field
+		// and also after the form post to redirect to a localized thank you page.
+		page.find("input[name='culture']").attr('value',lang);
 		
 		debugWrite("Устанавливаем типы полей ввода","start");
 		$("input[name*='expected_delivery_date']",page).attr("type","date");
@@ -294,47 +422,6 @@
 			debugWrite('url.attr("query").split("&").forEach error',e);
 		}
 		debugWrite("Заполняем элементы ввода значениями переданными в параметрах","end");
-	
-		// Проверка встроенной поддержки для <input type="date">
-		// Если нет встроенной поддержки для <input type="date">,
-		// то заменяем <input type="date"> на <input type="text">
-		// и назначаем обработчиком jquery.datepicker
-//		if (!Modernizr.inputtypes.date) {
-			page.find("input[type='date']").each(function(index, element) {
-				// Обработка поля due_date если нет встроенной поддержки для <input type="date">
-				debugWrite("Обработка поля due_date если нет встроенной поддержки для <input type='date'>","start");
-               	$(element).attr("type","text"); 
-				$(element).datepicker(
-						$.extend({
-							showButtonPanel: true,
-							minDate: 0, 
-							maxDate: "+10M",
-						}, $.datepicker.regional[ lang ] ));
-				debugWrite("Обработка поля due_date если нет встроенной поддержки для <input type='date'>","end");
-            });	
-//		}
-
-		debugWrite("Установка текущей даты","start");
-		page.find(".today").each(function(index, element) {
-			$(element).val((new Date()).format($.datepicker.regional[ lang ].dateFormat+"yy"));
-		});
-		debugWrite("Установка текущей даты","end");
-		
-		debugWrite("Установка маски ввода (999) 999-9999","start");
-		try {
-			page.find("input[name*='phone']").mask("(999) 999-9999");
-		} catch (e) {
-			debugWrite('page.find("input[name*=\'phone\']").mask("(999) 999-9999") error',e);
-		}
-		debugWrite("Установка маски ввода (999) 999-9999","end");
-	
-		debugWrite("Установка валидации форм","start");
-		try {
-			page.find("form").validate();
-		} catch (e) {
-			debugWrite('page.find("form").validate() error',e);
-		}
-		debugWrite("Установка валидации форм","end");
 	
 		page.find(".save").bind("vclick",function(event) {
 			if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
@@ -411,8 +498,7 @@
 					} catch(e) {
 						debugWrite("crossDomainSubmit error",e);
 					}
-					debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2","end");
-					
+					debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2","end");					
 				}
 				debugWrite("Отправка формы обратной связи","end");
 			}
@@ -425,12 +511,105 @@
 			return false;
 		});
 	
+		debugWrite("createCallbackForm","end");
 	}
+	
+	$(document).bind('pagebeforecreate', function( event, data ){
+		debugWrite("document","pagebeforecreate");
+		var wrapper = "#saleforce-callback-form-wrapper";
+		if($(wrapper).length>0) createCallbackForm(wrapper);
+	});
 	
 	$(document).ready(function(){
 		debugWrite("document","ready");
 		var wrapper = "#saleforce-callback-form-wrapper";
 		if($(wrapper).length>0) createCallbackForm(wrapper);
+		// Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
+		var lang = $.culture||"en";
+		
+		debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>","start");
+		// Проверка встроенной поддержки для <input type="date">
+//		if (!Modernizr.inputtypes.date) {
+			// Если нет встроенной поддержки для <input type="date">,
+			// то заменяем <input type="date"> на <input type="text">
+			if ($.isMobile) {
+				var mask = $.mobiscroll.i18n[ lang ].dateFormat+"yy";
+				$("input[nane='dateFormat']",currentCallbackForm()).val(mask);
+				$("input[type='date']",currentCallbackForm()).each(function(index, element) {
+					// Обработка поля due_date если нет встроенной поддержки для <input type="date">
+					$(element).attr("type","text");
+					$(element).val(dateFormat(mask));
+					$(element).mobiscroll().date(
+							$.extend({},$.mobiscroll.i18n[ lang ],{
+								theme:"ios7",
+								timeFormat:"HH:ii",
+       							timeWheels: 'HHii',
+							}));
+				});	
+			} else {
+				var mask = $.datepicker.regional[ lang ].dateFormat+"yy";
+				$("input[nane='dateFormat']",currentCallbackForm()).val(mask);
+				// и назначаем обработчиком jquery.datepicker
+				$("input[type='date']",currentCallbackForm()).each(function(index, element) {
+					// Обработка поля due_date если нет встроенной поддержки для <input type="date">
+					$(element).attr("type","text"); 
+					$(element).val(dateFormat(mask));
+					$(element).datepicker(
+							$.extend({},$.datepicker.regional[ lang ],{
+								showButtonPanel: true,
+								minDate: 0, 
+								maxDate: "+10M",
+							}));
+				});	
+			}
+//		}
+		debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>","end");
+
+		debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>","start");
+		// Проверка встроенной поддержки для <input type="time">
+//		if (!Modernizr.inputtypes.time) {
+			// Если нет встроенной поддержки для <input type="time">,
+			// то заменяем <input type="date"> на <input type="text">
+			if ($.isMobile) {
+				$("input[type='time']",currentCallbackForm()).each(function(index, element) {
+					// Обработка поля time если нет встроенной поддержки для <input type="time">
+					$(element).attr("type","text");
+					$(element).mobiscroll().time(
+							$.extend({},$.mobiscroll.i18n[ lang ],{
+								theme:"ios7",
+								timeFormat:"HH:ii",
+       							timeWheels: 'HHii',
+							}));
+				});	
+			} else {
+				// и назначаем обработчиком jquery.timepicker
+				$("input[type='time']",currentCallbackForm()).each(function(index, element) {
+					// Обработка поля time если нет встроенной поддержки для <input type="time">
+					$(element).attr("type","text"); 
+					$(element).timepicker(
+							$.extend({},$.timepicker.regional[ lang ],{
+								showButtonPanel: true,
+							}));
+				});	
+			}
+//		}
+		debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>","end");
+
+		debugWrite("Установка маски ввода (999) 999-9999","start");
+		try {
+			$("input[name*='phone']",currentCallbackForm()).mask("(999) 999-9999");
+		} catch (e) {
+			debugWrite('page.find("input[name*=\'phone\']").mask("(999) 999-9999") error',e);
+		}
+		debugWrite("Установка маски ввода (999) 999-9999","end");
+	
+		debugWrite("Установка валидации форм","start");
+		try {
+			currentCallbackForm().validate();
+		} catch (e) {
+			debugWrite('page.find("form").validate() error',e);
+		}
+		debugWrite("Установка валидации форм","end");
 	});
 
 	$(document).ready(function(){
@@ -439,10 +618,8 @@
 	$(document).ajaxStop(function(){
 		$("a").attr("data-ajax","false");
 	});
-	
-	$(document).bind("mobileinit", function(){
-		$.mobile.ajaxEnabled = false;
-	});	
-	
-	debugWrite("callback","form");
+			
+	debugWrite("saleforce-callback","form");
+	debugWrite("$.isMobile",$.isMobile);
+	debugWrite("$.culture",$.culture);
 })(jQuery);

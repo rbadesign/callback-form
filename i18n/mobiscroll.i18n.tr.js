@@ -3,6 +3,8 @@
         // Core
         setText: 'Seç',
         cancelText: 'İptal',
+        clearText: 'Temizleyin',
+        selectedText: 'Seçilmiş',
         // Datetime component
         dateFormat: 'dd.mm.yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'hhiiA',
         yearText: 'Yıl',
         nowText: 'Şimdi',
+        pmText: 'akşam',
+        amText: 'sabah',
         // Calendar component
         dateText: 'Tarih',
         timeText: 'Zaman',
         calendarText: 'Takvim',
+        closeText: 'Kapatmak',
+        // Daterange component
+        fromText: 'Başla',
+        toText: 'Son',
         // Measurement components
         wholeText: 'Tam',
         fractionText: 'Kesir',

@@ -3,6 +3,8 @@
         // Core
         setText: 'Terminé',
         cancelText: 'Annuler',
+        clearText: 'Effacer',
+        selectedText: 'Sélectionné',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddmmyy',
@@ -19,10 +21,16 @@
         timeWheels: 'HHii',
         yearText: 'Année',
         nowText: 'Maintenant',
+        pmText: 'après-midi',
+        amText: 'avant-midi',
         // Calendar component
         dateText: 'Date',
         timeText: 'Heure',
         calendarText: 'Calendrier',
+        closeText: 'Fermer',
+        // Daterange component
+        fromText: 'Démarrer',
+        toText: 'Fin',
         // Measurement components
         wholeText: 'Entier',
         fractionText: 'Fraction',
@@ -31,10 +39,10 @@
         labels: ['Ans', 'Mois', 'Jours', 'Heures', 'Minutes', 'Secondes', ''],
         labelsShort: ['Yrs', 'Mths', 'Days', 'Hrs', 'Mins', 'Secs', ''],
         // Timer component
-        startText: 'Indít',
-        stopText: 'Megállít',
-        resetText: 'Visszaállít',
+        startText: 'Démarrer',
+        stopText: 'Arrêter',
+        resetText: 'Réinitialiser',
         lapText: 'Lap',
-        hideText: 'Elrejt'
+        hideText: 'Cachez'
     });
 })(jQuery);
