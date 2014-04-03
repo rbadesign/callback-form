@@ -566,7 +566,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></td>
 	// Обработка try-catch требуется для совместимости с IE
 	function debugWrite(a,b) {
 		try {
-//			console.log(a+":"+b);
+			console.log(a+":"+b);
 		} catch (e) {
 		}
 	}
@@ -607,11 +607,12 @@ Umbilical Cord Blood and Cord Tissue Service</label></td>
 			base[b[0]]=base[b[0]]||{};
 			base[b[0]][b[1]]=$(element).attr("value");
 		});
-		for(var prop in base["base"]) debugWrite("base['base'][prop]",base["base"][prop]);
 		$("input[price-role='subtotal']").each(function(index, input) {
+			for(var prop in base["base"]) debugWrite("base['base']["+prop+"]",base["base"][prop]);
+			debugWrite("$(input).attr('name')",$(input).attr("name"));
 			var context=$.extend({},base);
+			context["base"]=$.extend({},base["base"]);
 			var names = $(input).attr("name").split("-");
-			context["base"]=context["base"]||{};
 			names[0].split(",").forEach(function(item){
 				var a = item.split(":");
 				debugWrite("a[0]",a[0]);
@@ -634,7 +635,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></td>
 					context["base"][b[1]]=$(element).attr("value");
 				}
             });
-			for(var prop in context["base"]) debugWrite("context['base'][prop]",context["base"][prop]);
+			for(var prop in context["base"]) debugWrite("context['base']["+prop+"]",context["base"][prop]);
 			var value=Enumerable.From(fee).Where(function(x){return like(context["base"],x);}).Sum(function(x){return x.value;});
 			debugWrite("value",value);
 			if(value!=$(input).val()) {
