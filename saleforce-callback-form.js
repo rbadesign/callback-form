@@ -611,15 +611,9 @@
 		}
 		debugWrite("Установка валидации форм","end");
 	});
-
-	$(document).ready(function(){
+	var dataAjaxFalse = function(){
 		$("a").attr("data-ajax","false");
-	});
-	$(document).ajaxStop(function(){
-		$("a").attr("data-ajax","false");
-	});
-			
-	debugWrite("saleforce-callback","form");
-	debugWrite("$.isMobile",$.isMobile);
-	debugWrite("$.culture",$.culture);
+	};
+	$(document).ready(dataAjaxFalse);
+	$(document).ajaxStop(dataAjaxFalse);
 })(jQuery);

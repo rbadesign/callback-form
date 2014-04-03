@@ -178,8 +178,8 @@
   </tr>
   <tr>
     <th rowspan="2" scope="row" class="EditingFormLabelCell"><label for="number_of_babies:">Number of Babies</label>:</th>
-    <td><input type="radio" name="number_of_babies" id="single_birth" value="single_birth" />
-    <label for="single_birth">Single Birth</label></td>
+    <td><input type="radio" name="number_of_babies" id="single" value="single" />
+    <label for="single">Single Birth</label></td>
     <td colspan="2"><input type="radio" name="number_of_babies" id="twins" value="twins" />
     <label for="twins">Twins</label></td>
     <td colspan="2"><input type="radio" name="number_of_babies" id="triplets" value="triplets" />
@@ -247,7 +247,7 @@
 			date_to_contact: "Date To Contact",
 			time_to_contact: "Time to Contact",
 			number_of_babies: "Number of Babies",
-			single_birth: "Single Birth",
+			single: "Single Birth",
 			twins: "Twins",
 			triplets: "Triplets",
 			quadruplets: "Quadruplets",
@@ -279,7 +279,7 @@
 			date_to_contact: "Date To Contact",
 			time_to_contact: "Time to Contact",
 			number_of_babies: "Number of Babies",
-			single_birth: "Single Birth",
+			single: "Single Birth",
 			twins: "Twins",
 			triplets: "Triplets",
 			quadruplets: "Quadruplets",
@@ -311,7 +311,7 @@
 			date_to_contact: "Дата встречи",
 			time_to_contact: "Время встречи",
 			number_of_babies: "Количество новорожденных",
-			single_birth: "Один ребёнок",
+			single: "Один ребёнок",
 			twins: "Двойня",
 			triplets: "Тройняшки",
 			quadruplets: "Четверняшки",
@@ -343,7 +343,7 @@
 			date_to_contact: "Date To Contact",
 			time_to_contact: "Time to Contact",
 			number_of_babies: "Number of Babies",
-			single_birth: "Single Birth",
+			single: "Single Birth",
 			twins: "Twins",
 			triplets: "Triplets",
 			quadruplets: "Quadruplets",
@@ -375,7 +375,7 @@
 			date_to_contact: "Date To Contact",
 			time_to_contact: "Time to Contact",
 			number_of_babies: "Number of Babies",
-			single_birth: "Single Birth",
+			single: "Single Birth",
 			twins: "Twins",
 			triplets: "Triplets",
 			quadruplets: "Quadruplets",
@@ -407,7 +407,7 @@
 			date_to_contact: "Date To Contact",
 			time_to_contact: "Time to Contact",
 			number_of_babies: "Number of Babies",
-			single_birth: "Single Birth",
+			single: "Single Birth",
 			twins: "Twins",
 			triplets: "Triplets",
 			quadruplets: "Quadruplets",
@@ -847,13 +847,9 @@
 		}
 		debugWrite("Установка валидации форм","end");
 	});
-
-	$(document).ready(function(){
+	var dataAjaxFalse = function(){
 		$("a").attr("data-ajax","false");
-	});
-	$(document).ajaxStop(function(){
-		$("a").attr("data-ajax","false");
-	});
-	
-	debugWrite("callback","form");
+	};
+	$(document).ready(dataAjaxFalse);
+	$(document).ajaxStop(dataAjaxFalse);
 })(jQuery);

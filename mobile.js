@@ -39,7 +39,6 @@
 		} catch (e) {
 		}
 	}
-	
 	var init = function () {
 		debugWrite("$.isMobile",$.isMobile);
 		debugWrite("$.culture",$.culture);
@@ -51,14 +50,10 @@
 		  $("#mainmenu").toggle();
 		});
 	}
-	
 	$(document).bind('pagebeforecreate',init);
-	
-	$(document).ready(function(){
+	var dataAjaxFalse = function(){
 		$("a").attr("data-ajax","false");
-	});
-	$(document).ajaxStop(function(){
-		$("a").attr("data-ajax","false");
-	});
-	
+	};
+	$(document).ready(dataAjaxFalse);
+	$(document).ajaxStop(dataAjaxFalse);	
 })(jQuery);

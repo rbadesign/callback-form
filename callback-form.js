@@ -409,18 +409,13 @@
 		debugWrite("document","pagebeforecreate");
 		var wrapper = "#callback-form-wrapper";
 		if($(wrapper).length>0) createCallbackForm(wrapper);
-	});
-	
-	$(document).ready(function(){
+	});	
+	var dataAjaxFalse = function(){
 		$("a").attr("data-ajax","false");
-	});
-	$(document).ajaxStop(function(){
-		$("a").attr("data-ajax","false");
-	});
-	
+	};
+	$(document).ready(dataAjaxFalse);
+	$(document).ajaxStop(dataAjaxFalse);	
 	$(document).bind("mobileinit", function(){
 		$.mobile.ajaxEnabled = false;
 	});	
-	
-	debugWrite("callback","form");
 })(jQuery);

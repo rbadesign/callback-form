@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "base://W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+    	<td>
+        <div class="row"><div id="base:location" class="buttonset col-md-4 well">
+        <div class="row"><div class="col-md-4">
+            	<label for="location:local">
+                <input name="base:location" type="radio" value="local" checked="checked" price-role="input" />
+                Local</label>
+        </div><div class="col-md-4">
+            <label for="location:puertoRico">
+                <input type="radio" name="base:location" value="puertoRico" price-role="input" />
+                Puerto Rico</label>
+        </div><div class="col-md-4">
+            <label for="location:domestic">
+              <input type="radio" name="base:location" value="domestic" price-role="input" />
+                Domestic</label>
+        </div></div>
+</div> 
+         <div id="base:clientType" class="buttonset col-md-4 well">
+        <div class="row"><div class="col-md-6">
+            <label for="clientType:newClient">
+            <input name="base:clientType" type="radio" value="newClient" checked="checked" price-role="input" />
+            New Cryo-Cell Client</label>
+        </div><div class="col-md-6">
+            <label for="clientType:returningClient">
+            <input type="radio" name="base:clientType" value="returningClient" price-role="input" />
+            Returning Cryo-Cell Client</label>      	        </div></div>
+</div><div id="base:numberOfBabies" class="buttonset col-md-4 well">
+        <div class="row"><div class="col-md-4">
+            <label for="numberOfBabies:single">
+            <input name="base:numberOfBabies" type="radio" value="single" checked="checked" price-role="input" />
+            Single</label>
+        </div><div class="col-md-4">
+            <label for="numberOfBabies:twins">
+            <input type="radio" name="base:numberOfBabies" value="twins" price-role="input"  />
+            Twins</label>      	
+        </div><div class="col-md-4">
+            <label for="numberOfBabies:triplets">
+            <input type="radio" name="base:numberOfBabies" value="triplets" price-role="input"  />
+            Triplets</label>      	
+        </div></div>
+      </div></div></td>
+  </tr>
+  <tr>
+    <td scope="col"><div class="row"><div class="col-md-3 well"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped">
+  <tr><td colspan="2" class="lead">
+<label for="umbilicalCordBlood:base"><input type="checkbox" name="umbilicalCordBlood:base" price-role="input" />
+Umbilical Cord Blood Service</label></td>
+    </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood-base:planType">Plan Type</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBlood-base:planType" class="buttonset">
+            <label for="service:umbilicalCordBlood-planType:annual">
+            <input name="service:umbilicalCordBlood-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
+            Annual</label>
+            <label for="service:umbilicalCordBlood-planType:twentyOneYears">
+            <input type="radio" name="service:umbilicalCordBlood-base:planType" value="twentyOneYears" price-role="input" />
+            Twenty One Years</label></div></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:bloodProcessingAndTesting">Cord Blood Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="service:umbilicalCordBlood,option:bloodProcessingAndTesting" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:annualStorage">Annual Storage Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood,option:annualStorage" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:medicalCourier">Medical Courier Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood,option:medicalCourier" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:discount">Discount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood,option:discount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:couponAmount">Coupon Amount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr class="info">
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood-base:total">Total - Enter quoted price</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr></table></div><div class="col-md-3 well"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped">
+  <tr>
+    <td colspan="2" scope="col" class="lead"><label for="umbilicalCordBloodAndTissue:base"><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
+Umbilical Cord Blood and Cord Tissue Service</label></td>
+    </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue-base:planType">Plan Type</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBloodAndTissue-base:planType" class="buttonset">
+            <label for="service:umbilicalCordBloodAndTissue-planType:annual">
+            <input name="service:umbilicalCordBloodAndTissue-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
+            Annual</label>
+            <label for="service:umbilicalCordBloodAndTissue-planType:twentyOneYears">
+            <input type="radio" name="service:umbilicalCordBloodAndTissue-base:planType" value="twentyOneYears" price-role="input" />
+            Twenty One Years</label></div></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:bloodProcessingAndTesting">Cord Blood Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="service:umbilicalCordBloodAndTissue,option:bloodProcessingAndTesting" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:tissueProcessingAndTesting">Cord Tissue Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="service:umbilicalCordBloodAndTissue,option:tissueProcessingAndTesting" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:annualStorage">Annual Storage Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue,option:annualStorage" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:medicalCourier">Medical Courier Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue,option:medicalCourier" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:discount">Discount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue,option:discount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:couponAmount">Coupon Amount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr class="info">
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue-base:total">Total - Enter quoted price</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+</table>
+</div><div class="col-md-3 well">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped">
+  <tr>
+    <td colspan="2" scope="col" class="lead">
+     <label for="menstrualStemCell:base"><input type="checkbox" name="menstrualStemCell:base" price-role="input" />
+      Menstrual Stem Cell</label></td>
+    </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell-planType">Plan Type</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+     <div id="service:menstrualStemCell-base:planType" class="buttonset">
+            <label for="service:menstrualStemCell-planType:annual">
+            <input name="service:menstrualStemCell-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
+            Annual</label>
+        </div></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:menstrualProcessingAndTesting">Menstrual Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="service:menstrualStemCell,option:menstrualProcessingAndTesting" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:annualStorage">Annual Storage Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell,option:annualStorage" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:medicalCourier">Medical Courier Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell,option:medicalCourier" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:discount">Discount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell,option:discount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:couponAmount">Coupon Amount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+  <tr class="info">
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell-base:total">Total - Enter quoted price</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
+  </tr>
+</table>
+</div><div class="col-md-3 well">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped">
+  <tr>
+    <td colspan="2" scope="col" class="lead"><label for="base:summary">Summary</label></td>
+    </tr>
+  <tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:planType,service:umbilicalCordBlood">Umbilical Cord Blood Service Plan Type</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:planType,service:umbilicalCordBlood" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:planType,service:umbilicalCordBloodAndTissue">Umbilical Cord Blood and Cord Tissue Service</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:planType,service:umbilicalCordBloodAndTissue" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:planType,service:menstrualStemCell">Menstrual Stem Cell Plan Type</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:planType,service:menstrualStemCell" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:bloodProcessingAndTesting">Cord Blood Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:bloodProcessingAndTesting" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:tissueProcessingAndTesting">Cord Tissue Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:tissueProcessingAndTesting" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:menstrualProcessingAndTesting">Menstrual Processing & Testing Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col">
+      <input name="summary:menstrualProcessingAndTesting" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:annualStorage">Annual Storage Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:annualStorage" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:medicalCourier">Medical Courier Fee</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:medicalCourier" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:discount">Discount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:discount" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr>
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:couponAmount">Coupon Amount</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:couponAmount" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+  <tr class="info">
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:total">Total - Enter quoted price</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:total" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
+</table></div></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
+<table width="480" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <th width="15%" class="EditingFormLabelCell" scope="row"><label for="first_name">First Name</label>:</th>
     <td colspan="2">
@@ -26,7 +26,60 @@
     <input type="text" name="city" id="city" style="width:100%;" class="required" /></td>
     <th class="EditingFormLabelCell"><label for="state">State</label>:</th>
     <td colspan="2">
-    <input type="text" name="state" id="state" style="width:100%;" class="required" /></td>
+   <select name="state" id="state" style="width:100%;" class="required" />
+					<option selected="selected" value=""> -</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+
+				</select></td>
     <th class="EditingFormLabelCell"><label for="zip_code">Zip Code</label>:</th>
     <td>
     <input type="text" name="zip_code" id="zip_code" style="width:100%;" class="required zipcodeUS" /></td>
@@ -54,8 +107,8 @@
   </tr>
   <tr>
     <th width="15%" rowspan="2" class="EditingFormLabelCell" scope="row"><label for="number_of_babies:">Number of Babies</label>:</th>
-    <td><input type="radio" name="number_of_babies" id="single_birth" value="single_birth" />
-    <label for="single_birth">Single Birth</label></td>
+    <td><input type="radio" name="number_of_babies" id="single" value="single" />
+    <label for="single">Single Birth</label></td>
     <td colspan="2"><input type="radio" name="number_of_babies" id="twins" value="twins" />
     <label for="twins">Twins</label></td>
     <td colspan="2"><input type="radio" name="number_of_babies" id="triplets" value="triplets" />
@@ -228,6 +281,126 @@
 	</tbody>
 </table>
 <p>&nbsp;</p>
+
+
+<style type="text/css">td.EditingFormValueCell div.EditingFormControlNestedControl{max-width:100% !important;}</style>
+<style type="text/css">td.EditingFormLabelCell{width:100px !important;}</style>
+<style type="text/css">td.EditingFormLabelCell label{min-width:100px !important;display:block !important;}</style>
+<style type="text/css">td.EditingFormValueCell textarea{width:400px !important;}</style>
+<style type="text/css">td.EditingFormValueCell input{max-width:100% !important;}</style>
+<style type="text/css">td.Cell4 input{max-width:100px !important;}</style>
+<style type="text/css">td.Cell6 input{max-width:70px !important;}</style>
+<style type="text/css">td.Cell6 label{max-width:70px !important;}</style>
+$$input:Enroll_CallbackID$$
+<table border="0" cellpadding="0" cellspacing="0" width="480">
+  <tr>
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="480">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:first_name$$</td>
+        <td class="EditingFormValueCell">$$input:first_name$$</td>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:last_name$$</td>
+        <td class="EditingFormValueCell">$$input:last_name$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:first_name$$</td>
+        <td class="EditingFormValueCell">$$validation:last_name$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="480">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:address$$</td>
+        <td class="EditingFormValueCell">$$input:address$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:address$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="480">
+      <tr>
+        <td width="15%" rowspan="2" class="EditingFormLabelCell" >$$label:city$$</td>
+        <td width="15%"  class="EditingFormValueCell Cell6">$$input:city$$</td>
+        <td rowspan="2" class="EditingFormLabelCell Cell6" >$$label:state$$</td>
+        <td width="15%"  class="EditingFormValueCell Cell6">$$input:state$$</td>
+        <td width="15%" rowspan="2" class="EditingFormLabelCell Cell6" >$$label:zip_code$$</td>
+        <td width="15%" class="EditingFormValueCell Cell6">$$input:zip_code$$</td>
+      </tr>
+      <tr>
+        <td width="15%" class="EditingFormValueCell Cell6">$$validation:city$$</td>
+        <td width="15%" class="EditingFormValueCell Cell6">$$validation:state$$</td>
+        <td width="15%" class="EditingFormValueCell Cell6">$$validation:zip_code$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table width="480" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:date_to_contact$$</td>
+        <td class="EditingFormValueCell Cell4">$$input:date_to_contact$$</td>
+        <td rowspan="2" class="EditingFormLabelCell Cell4" >$$label:time_to_contact$$</td>
+        <td class="EditingFormValueCell Cell4">$$input:time_to_contact$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell Cell4">$$validation:date_to_contact$$</td>
+        <td class="EditingFormValueCell Cell4">$$validation:time_to_contact$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table width="480" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:phone$$</td>
+        <td class="EditingFormValueCell">$$input:phone$$</td>
+        <td rowspan="2" class="EditingFormLabelCell Cell6" >$$label:email$$</td>
+        <td class="EditingFormValueCell">$$input:email$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:phone$$</td>
+        <td class="EditingFormValueCell">$$validation:email$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table width="480" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:number_of_babies$$</td>
+        <td class="EditingFormValueCell">$$input:number_of_babies$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:number_of_babies$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table width="480" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:client_type$$</td>
+        <td class="EditingFormValueCell">$$input:client_type$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:client_type$$</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td scope="row"><table width="480" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2" class="EditingFormLabelCell" >$$label:plan_type$$</td>
+        <td class="EditingFormValueCell">$$input:plan_type$$</td>
+      </tr>
+      <tr>
+        <td class="EditingFormValueCell">$$validation:plan_type$$</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+
+
+
 
 <style type="text/css">td.EditingFormValueCell input{max-width:80px !important;}</style>
 $$input:Enroll_CallbackID$$
