@@ -46,206 +46,206 @@
 	<div id='price-form-wrapper'></div>
 */
 ///////////////////////////////////////////////////////////////////////////////////////
-(function ($) {
-	$.priceFormWrapper = "#price-form-wrapper";
-	$.priceColumns = {
-		en:{
-			base:{
-				location:"Location",
-				numberOfBabies:"Number of Babies",
-				clientType:"Client Type",
-				planType:"Plan Type",
-				service:"Service",
-				option:"Fee",
-				total:"Total - Enter quoted price",
-			},
-			umbilicalCordBlood:{
-				base:"Umbilical Cord Blood Service",
-			},
-			umbilicalCordBloodAndTissue:{
-				base:"Umbilical Cord Blood and Cord Tissue Service",
-			},
-			menstrualStemCell:{
-				base:"Menstrual Stem Cell",
-			},
-			location:{
-				local:"Local",
-				puertoRico:"Puerto Rico",
-				domestic:"Domestic",
-			},												
-			numberOfBabies:{
-				single:"Single",
-				twins:"Twins",
-				triplets:"Triplets",
-				quadruplets:"Quadruplets",
-			},												
-			clientType:{
-				newClient:"New Cryo-Cell Client",
-				returningClient:"Returning Cryo-Cell Client",
-			},												
-			planType:{
-				annual:"Annual",
-				twentyOneYears:"21 Years",
-			},												
-			service:{
-				umbilicalCordBlood:"Umbilical Cord Blood Service",
-				umbilicalCordBloodAndTissue:"Umbilical Cord Blood and Cord Tissue Service",
-				menstrualStemCell:"Menstrual Stem Cell",
-			},												
-			option:{
-				bloodProcessingAndTesting:"Cord Blood Processing & Testing Fee",
-				tissueProcessingAndTesting:"Cord Tissue Processing & Testing Fee",
-				menstrualProcessingAndTesting:"Menstrual Processing & Testing Fee",
-				annualStorage:"Annual Storage Fee",
-				medicalCourier:"Medical Courier Fee",
-				discount:"Discount",
-				couponAmount:"Coupon Amount",
-			},
-			summary:{
-				base:"Summary",
-				planType:"Plan Type",
-				bloodProcessingAndTesting:"Cord Blood Processing & Testing Fee",
-				tissueProcessingAndTesting:"Cord Tissue Processing & Testing Fee",
-				menstrualProcessingAndTesting:"Menstrual Processing & Testing Fee",
-				annualStorage:"Annual Storage Fee",
-				medicalCourier:"Medical Courier Fee",
-				discount:"Discount",
-				couponAmount:"Coupon Amount",
-				total:"Total",
-			},											
-		},
-		es:{
-			base:{
-				location:"Location",
-				numberOfBabies:"Number of Babies",
-				clientType:"Client Type",
-				planType:"Plan Type",
-				service:"Service",
-				option:"Fee",
-				total:"Total - Enter quoted price",
-			},
-			umbilicalCordBlood:{
-				base:"Umbilical Cord Blood Service",
-			},
-			umbilicalCordBloodAndTissue:{
-				base:"Umbilical Cord Blood and Cord Tissue Service",
-			},
-			menstrualStemCell:{
-				base:"Menstrual Stem Cell",
-			},
-			location:{
-				local:"Local",
-				puertoRico:"Puerto Rico",
-				domestic:"Domestic",
-			},												
-			numberOfBabies:{
-				single:"Single",
-				twins:"Twins",
-				triplets:"Triplets",
-				quadruplets:"Quadruplets",
-			},												
-			clientType:{
-				newClient:"New Cryo-Cell Client",
-				returningClient:"Returning Cryo-Cell Client",
-			},												
-			planType:{
-				annual:"Annual",
-				twentyOneYears:"21 Years",
-			},												
-			service:{
-				umbilicalCordBlood:"Umbilical Cord Blood Service",
-				umbilicalCordBloodAndTissue:"Umbilical Cord Blood and Cord Tissue Service",
-				menstrualStemCell:"Menstrual Stem Cell",
-			},												
-			option:{
-				bloodProcessingAndTesting:"Cord Blood Processing & Testing Fee",
-				tissueProcessingAndTesting:"Cord Tissue Processing & Testing Fee",
-				menstrualProcessingAndTesting:"Menstrual Processing & Testing Fee",
-				annualStorage:"Annual Storage Fee",
-				medicalCourier:"Medical Courier Fee",
-				discount:"Discount",
-				couponAmount:"Coupon Amount",
-			},
-			summary:{
-				base:"Summary",
-				planType:"Plan Type",
-				bloodProcessingAndTesting:"Cord Blood Processing & Testing Fee",
-				tissueProcessingAndTesting:"Cord Tissue Processing & Testing Fee",
-				menstrualProcessingAndTesting:"Menstrual Processing & Testing Fee",
-				annualStorage:"Annual Storage Fee",
-				medicalCourier:"Medical Courier Fee",
-				discount:"Discount",
-				couponAmount:"Coupon Amount",
-				total:"Total",
-			},											
-		},
-		ru:{
-			base:{
-				location:"Месторасположение",
-				numberOfBabies:"Количество новорожденных",
-				clientType:"Тип клиента",
-				planType:"Тарифный план",
-				service:"Услуга",
-				option:"Тариф",
-				total:"Итого - стартовый тариф",
-			},
-			umbilicalCordBlood:{
-				base:"Хранение пуповинной крови",
-			},
-			umbilicalCordBloodAndTissue:{
-				base:"Хранение пуповинной крови и ткани",
-			},
-			menstrualStemCell:{
-				base:"Хранение менструальных клеток",
-			},
-			location:{
-				local:"Рядом",
-				puertoRico:"Пуэрто-Рико",
-				domestic:"Территория США",
-			},												
-			numberOfBabies:{
-				single:"Один ребёнок",
-				twins:"Двойня",
-				triplets:"Тройняшки",
-				quadruplets:"Четверняшки",
-			},												
-			clientType:{
-				newClient:"Новый клиент Cryo-Cell",
-				returningClient:"Постоянный клиент Cryo-Cell",
-			},												
-			planType:{
-				annual:"1-год",
-				twentyOneYears:"21-год",
-			},												
-			service:{
-				umbilicalCordBlood:"Хранение пуповинной крови",
-				umbilicalCordBloodAndTissue:"Хранение пуповинной крови и ткани",
-				menstrualStemCell:"Хранение менструальных клеток",
-			},												
-			option:{
-				bloodProcessingAndTesting:"Плата за обработку и тестирование пуповинной крови",
-				tissueProcessingAndTesting:"Плата за обработку и тестирование пуповинной ткани",
-				menstrualProcessingAndTesting:"Плата за обработку и тестирование менструальных клеток",
-				annualStorage:"Плата за годовое хранение",
-				medicalCourier:"Плата за вызов курьера",
-				discount:"Скидка",
-				couponAmount:"Купон",
-			},												
-			summary:{
-				base:"Суммарно",
-				planType:"Тарифный план",
-				bloodProcessingAndTesting:"Плата за обработку и тестирование пуповинной крови",
-				tissueProcessingAndTesting:"Плата за обработку и тестирование пуповинной ткани",
-				menstrualProcessingAndTesting:"Плата за обработку и тестирование менструальных клеток",
-				annualStorage:"Плата за годовое хранение",
-				medicalCourier:"Плата за вызов курьера",
-				discount:"Скидка",
-				couponAmount:"Купон",
-				total:"Итого - стартовый тариф",
-			},											
-		},
-	};
-	var priceFormHTML = hereDoc(function() {/*!
+(function($) {
+    $.priceFormWrapper = "#price-form-wrapper";
+    $.priceColumns = {
+        en: {
+            base: {
+                location: "Location",
+                numberOfBabies: "Number of Babies",
+                clientType: "Client Type",
+                planType: "Plan Type",
+                service: "Service",
+                option: "Fee",
+                total: "Total - Enter quoted price",
+            },
+            umbilicalCordBlood: {
+                base: "Umbilical Cord Blood Service",
+            },
+            umbilicalCordBloodAndTissue: {
+                base: "Umbilical Cord Blood and Cord Tissue Service",
+            },
+            menstrualStemCell: {
+                base: "Menstrual Stem Cell",
+            },
+            location: {
+                local: "Local",
+                puertoRico: "Puerto Rico",
+                domestic: "Domestic",
+            },
+            numberOfBabies: {
+                single: "Single",
+                twins: "Twins",
+                triplets: "Triplets",
+                quadruplets: "Quadruplets",
+            },
+            clientType: {
+                newClient: "New Cryo-Cell Client",
+                returningClient: "Returning Cryo-Cell Client",
+            },
+            planType: {
+                annual: "Annual",
+                twentyOneYears: "21 Years",
+            },
+            service: {
+                umbilicalCordBlood: "Umbilical Cord Blood Service",
+                umbilicalCordBloodAndTissue: "Umbilical Cord Blood and Cord Tissue Service",
+                menstrualStemCell: "Menstrual Stem Cell",
+            },
+            option: {
+                bloodProcessingAndTesting: "Cord Blood Processing & Testing Fee",
+                tissueProcessingAndTesting: "Cord Tissue Processing & Testing Fee",
+                menstrualProcessingAndTesting: "Menstrual Processing & Testing Fee",
+                annualStorage: "Annual Storage Fee",
+                medicalCourier: "Medical Courier Fee",
+                discount: "Discount",
+                couponAmount: "Coupon Amount",
+            },
+            summary: {
+                base: "Summary",
+                planType: "Plan Type",
+                bloodProcessingAndTesting: "Cord Blood Processing & Testing Fee",
+                tissueProcessingAndTesting: "Cord Tissue Processing & Testing Fee",
+                menstrualProcessingAndTesting: "Menstrual Processing & Testing Fee",
+                annualStorage: "Annual Storage Fee",
+                medicalCourier: "Medical Courier Fee",
+                discount: "Discount",
+                couponAmount: "Coupon Amount",
+                total: "Total",
+            },
+        },
+        es: {
+            base: {
+                location: "Location",
+                numberOfBabies: "Number of Babies",
+                clientType: "Client Type",
+                planType: "Plan Type",
+                service: "Service",
+                option: "Fee",
+                total: "Total - Enter quoted price",
+            },
+            umbilicalCordBlood: {
+                base: "Umbilical Cord Blood Service",
+            },
+            umbilicalCordBloodAndTissue: {
+                base: "Umbilical Cord Blood and Cord Tissue Service",
+            },
+            menstrualStemCell: {
+                base: "Menstrual Stem Cell",
+            },
+            location: {
+                local: "Local",
+                puertoRico: "Puerto Rico",
+                domestic: "Domestic",
+            },
+            numberOfBabies: {
+                single: "Single",
+                twins: "Twins",
+                triplets: "Triplets",
+                quadruplets: "Quadruplets",
+            },
+            clientType: {
+                newClient: "New Cryo-Cell Client",
+                returningClient: "Returning Cryo-Cell Client",
+            },
+            planType: {
+                annual: "Annual",
+                twentyOneYears: "21 Years",
+            },
+            service: {
+                umbilicalCordBlood: "Umbilical Cord Blood Service",
+                umbilicalCordBloodAndTissue: "Umbilical Cord Blood and Cord Tissue Service",
+                menstrualStemCell: "Menstrual Stem Cell",
+            },
+            option: {
+                bloodProcessingAndTesting: "Cord Blood Processing & Testing Fee",
+                tissueProcessingAndTesting: "Cord Tissue Processing & Testing Fee",
+                menstrualProcessingAndTesting: "Menstrual Processing & Testing Fee",
+                annualStorage: "Annual Storage Fee",
+                medicalCourier: "Medical Courier Fee",
+                discount: "Discount",
+                couponAmount: "Coupon Amount",
+            },
+            summary: {
+                base: "Summary",
+                planType: "Plan Type",
+                bloodProcessingAndTesting: "Cord Blood Processing & Testing Fee",
+                tissueProcessingAndTesting: "Cord Tissue Processing & Testing Fee",
+                menstrualProcessingAndTesting: "Menstrual Processing & Testing Fee",
+                annualStorage: "Annual Storage Fee",
+                medicalCourier: "Medical Courier Fee",
+                discount: "Discount",
+                couponAmount: "Coupon Amount",
+                total: "Total",
+            },
+        },
+        ru: {
+            base: {
+                location: "Месторасположение",
+                numberOfBabies: "Количество новорожденных",
+                clientType: "Тип клиента",
+                planType: "Тарифный план",
+                service: "Услуга",
+                option: "Тариф",
+                total: "Итого - стартовый тариф",
+            },
+            umbilicalCordBlood: {
+                base: "Хранение пуповинной крови",
+            },
+            umbilicalCordBloodAndTissue: {
+                base: "Хранение пуповинной крови и ткани",
+            },
+            menstrualStemCell: {
+                base: "Хранение менструальных клеток",
+            },
+            location: {
+                local: "Рядом",
+                puertoRico: "Пуэрто-Рико",
+                domestic: "Территория США",
+            },
+            numberOfBabies: {
+                single: "Один ребёнок",
+                twins: "Двойня",
+                triplets: "Тройняшки",
+                quadruplets: "Четверняшки",
+            },
+            clientType: {
+                newClient: "Новый клиент Cryo-Cell",
+                returningClient: "Постоянный клиент Cryo-Cell",
+            },
+            planType: {
+                annual: "1-год",
+                twentyOneYears: "21-год",
+            },
+            service: {
+                umbilicalCordBlood: "Хранение пуповинной крови",
+                umbilicalCordBloodAndTissue: "Хранение пуповинной крови и ткани",
+                menstrualStemCell: "Хранение менструальных клеток",
+            },
+            option: {
+                bloodProcessingAndTesting: "Плата за обработку и тестирование пуповинной крови",
+                tissueProcessingAndTesting: "Плата за обработку и тестирование пуповинной ткани",
+                menstrualProcessingAndTesting: "Плата за обработку и тестирование менструальных клеток",
+                annualStorage: "Плата за годовое хранение",
+                medicalCourier: "Плата за вызов курьера",
+                discount: "Скидка",
+                couponAmount: "Купон",
+            },
+            summary: {
+                base: "Суммарно",
+                planType: "Тарифный план",
+                bloodProcessingAndTesting: "Плата за обработку и тестирование пуповинной крови",
+                tissueProcessingAndTesting: "Плата за обработку и тестирование пуповинной ткани",
+                menstrualProcessingAndTesting: "Плата за обработку и тестирование менструальных клеток",
+                annualStorage: "Плата за годовое хранение",
+                medicalCourier: "Плата за вызов курьера",
+                discount: "Скидка",
+                couponAmount: "Купон",
+                total: "Итого - стартовый тариф",
+            },
+        },
+    };
+    var priceFormHtml = hereDoc(function() { /*!
 <form action="" method="get">
   <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
     	<td>
@@ -475,416 +475,411 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     </tr>
   </table>
 </form>
-*/});
-	$.fee = [
-{clientType:"newClient",planType:"annual",numberOfBabies:"single",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:1799.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:3799.00},
-{clientType:"newClient",planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:3418.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:7218.00},
-{clientType:"newClient",planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:5037.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:10637.00},
+*/
+    });
+    $.fee = [
+        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3418.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 7218.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 5037.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10637.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1619.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3419.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3238.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 6838.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 4857.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10257.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3418.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 7218.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 5037.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10637.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1619.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3419.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3238.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 6838.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 4857.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10257.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 575.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 2575.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1150.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 5150.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1725.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 7725.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 1099.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3925.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 989.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3825.00 },
+        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 125.00 },
+        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
+        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 250.00 },
+        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
+        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 375.00 },
+        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
+        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 250.00 },
+        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
+        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 500.00 },
+        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
+        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 750.00 },
+        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
+        { planType: "annual", service: "menstrualStemCell", option: "annualStorage", value: 125.00 },
+        { planType: "twentyOneYears", service: "menstrualStemCell", option: "annualStorage", value: 0.00 },
+        { location: "local", option: "medicalCourier", value: 50.00 },
+        { location: "puertoRico", option: "medicalCourier", value: 200.00 },
+        { location: "domestic", option: "medicalCourier", value: 150.00 }
+    ];
 
-{clientType:"returningClient",planType:"annual",numberOfBabies:"single",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:1619.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:3419.00},
-{clientType:"returningClient",planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:3238.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:6838.00},
-{clientType:"returningClient",planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:4857.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"bloodProcessingAndTesting",value:10257.00},
+    function hereDoc(f) {
+        return f.toString().
+            replace(/^[^\/]+\/\*!?/, '').
+            replace(/\*\/[^\/]+$/, '');
+    }
 
-{clientType:"newClient",planType:"annual",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:1799.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:3799.00},
-{clientType:"newClient",planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:3418.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:7218.00},
-{clientType:"newClient",planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:5037.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:10637.00},
+// This method is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other 
+    // implementations of the standard. To make it work you need to add following code at the top of your script:
+    if (!Array.prototype.forEach) {
+        Array.prototype.forEach = function(fun /*,thisp*/) {
+            var len = this.length;
+            if (typeof fun != "function")
+                throw new TypeError();
 
-{clientType:"returningClient",planType:"annual",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:1619.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:3419.00},
-{clientType:"returningClient",planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:3238.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:6838.00},
-{clientType:"returningClient",planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:4857.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"bloodProcessingAndTesting",value:10257.00},
+            var thisp = arguments[1];
+            for (var i = 0; i < len; i++) {
+                if (i in this)
+                    fun.call(thisp, this[i], i, this);
+            }
+        };
+    }
 
-{clientType:"*",planType:"annual",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:575.00},
-{clientType:"*",planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:2575.00},
-{clientType:"*",planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:1150.00},
-{clientType:"*",planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:5150.00},
-{clientType:"*",planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:1725.00},
-{clientType:"*",planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"tissueProcessingAndTesting",value:7725.00},
+// Функция вывода сообщений трассировки
+    // Обработка try-catch требуется для совместимости с IE
+    function debugWrite(a, b) {
+        try {
+            console.log(a + ":" + b);
+        } catch (e) {
+        }
+    }
 
-{clientType:"newClient",planType:"annual",numberOfBabies:"*",service:"menstrualStemCell",option:"menstrualProcessingAndTesting",value:1099.00},
-{clientType:"newClient",planType:"twentyOneYears",numberOfBabies:"*",service:"menstrualStemCell",option:"menstrualProcessingAndTesting",value:3925.00},
-
-{clientType:"returningClient",planType:"annual",numberOfBabies:"*",service:"menstrualStemCell",option:"menstrualProcessingAndTesting",value:989.00},
-{clientType:"returningClient",planType:"twentyOneYears",numberOfBabies:"*",service:"menstrualStemCell",option:"menstrualProcessingAndTesting",value:3825.00},
-
-{planType:"annual",numberOfBabies:"single",service:"umbilicalCordBlood",option:"annualStorage",value:125.00},
-{planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBlood",option:"annualStorage",value:0.00},
-{planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"annualStorage",value:250.00},
-{planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBlood",option:"annualStorage",value:0.00},
-{planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"annualStorage",value:375.00},
-{planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBlood",option:"annualStorage",value:0.00},
-
-{planType:"annual",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:250.00},
-{planType:"twentyOneYears",numberOfBabies:"single",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:0.00},
-{planType:"annual",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:500.00},
-{planType:"twentyOneYears",numberOfBabies:"twins",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:0.00},
-{planType:"annual",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:750.00},
-{planType:"twentyOneYears",numberOfBabies:"triplets",service:"umbilicalCordBloodAndTissue",option:"annualStorage",value:0.00},
-
-{planType:"annual",service:"menstrualStemCell",option:"annualStorage",value:125.00},
-{planType:"twentyOneYears",service:"menstrualStemCell",option:"annualStorage",value:0.00},
-
-{location:"local",option:"medicalCourier",value:50.00},
-{location:"puertoRico",option:"medicalCourier",value:200.00},
-{location:"domestic",option:"medicalCourier",value:150.00},
-	];
-
-	function hereDoc(f) {
-	  return f.toString().
-		  replace(/^[^\/]+\/\*!?/, '').
-		  replace(/\*\/[^\/]+$/, '');
-	}
-	// This method is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other 
-	// implementations of the standard. To make it work you need to add following code at the top of your script:
-	if (!Array.prototype.forEach)
-	{
-	  Array.prototype.forEach = function(fun /*,thisp*/)
-	  {
-		var len = this.length;
-		if (typeof fun != "function")
-		  throw new TypeError();
-	
-		var thisp = arguments[1];
-		for (var i = 0; i < len; i++)
-		{
-		  if (i in this)
-			fun.call(thisp,this[i],i,this);
-		}
-	  }
-	}
-	// Функция вывода сообщений трассировки
-	// Обработка try-catch требуется для совместимости с IE
-	function debugWrite(a,b) {
-		try {
-			console.log(a+":"+b);
-		} catch (e) {
-		}
-	}
-	function flatTable(t) {
-		$("tr",t).each(function(index, row) {
-			var html = "<div data-role='fieldcontain'>";
-			$("th,td",row).each(function(index, element) {
-				html += $(element).html()
-			});
-			html += "</div>";
-			$(t).before($(html));
-         });
-		$(t).remove();
-	}
-	function like(where,item){
-		var b = true;
-		for(var prop in where) b=b&&((typeof(item[prop])=="undefined")
-			||(item[prop]=="*")
-			||(item[prop]==where[prop]));
-		return b;
-	}
-	function isNullOrWhitespace(input) {
-		if (input == null) return true;
-		return input.replace(/\s/g, '').length < 1;
-	}
-	var updatePriceForm = function() {
-		var lang = $(document).data("lang");
-		var fee = $(document).data("fee");
-		var columns = $(document).data("columns");
-		debugWrite("lang",lang);
-		debugWrite("fee",fee);
-		debugWrite("columns",columns);
-		var base={};
-		$("input[price-role='input'][type='radio'][name^='base:']:checked").each(function(index, element) {
-			var b = $(element).attr("name").split(":");
-			debugWrite("b[0]",b[0]);
-			debugWrite("b[1]",b[1]);
-			base[b[0]]=base[b[0]]||{};
-			base[b[0]][b[1]]=$(element).attr("value");
-		});
-		$("input[price-role='subtotal']").each(function(index, input) {
-			for(var prop in base["base"]) debugWrite("base['base']["+prop+"]",base["base"][prop]);
-			debugWrite("$(input).attr('name')",$(input).attr("name"));
-			var context=$.extend({},base);
-			context["base"]=$.extend({},base["base"]);
-			var names = $(input).attr("name").split("-");
-			names[0].split(",").forEach(function(item){
-				var a = item.split(":");
-				debugWrite("a[0]",a[0]);
-				debugWrite("a[1]",a[1]);
-				context["base"][a[0]]=a[1];
-			});
-			$("input[price-role='input'][type='radio']:not([name^='base:']):checked").each(function(index, element) {
-                var path={};
-				var names = $(element).attr("name").split("-");
-				debugWrite("names[0]",names[0]);
-				names[0].split(",").forEach(function(item){
-					var a = item.split(":");
-					debugWrite("a[0]",a[0]);
-					debugWrite("a[1]",a[1]);
-					path[a[0]]=a[1];
-				});
-				if(like(path,context["base"])) {
-					var b = names[1].split(":");
-					debugWrite("b[1]",b[1]);
-					context["base"][b[1]]=$(element).attr("value");
-				}
+    function flatTable(t) {
+        $("tr", t).each(function(index, row) {
+            var html = "<div data-role='fieldcontain'>";
+            $("th,td", row).each(function(index, element) {
+                html += $(element).html();
             });
-			for(var prop in context["base"]) debugWrite("context['base']["+prop+"]",context["base"][prop]);
-			var value=Enumerable.From(fee).Where(function(x){return like(context["base"],x);}).Sum(function(x){return x.value;});
-			debugWrite("value",value);
-			if(value!=$(input).val()) {
-				$(input).val(value);
-				$("div[id='"+$(input).attr("name")+"']").shuffleLetters({
-					text: $(input).val()
-				});
-			}
+            html += "</div>";
+            $(t).before($(html));
         });
-		var totals=[];
-		var subtotals={};
-		for(var prop in columns[lang].option) subtotals[prop]=[];
-		for(var item in columns[lang].service) {
-			if ($("input[name='"+item+":base']:checked").length>0){
-				var service={};
-				service["service"]=item;
-				var where=$.extend({},base["base"],service);
-				$("input[price-role='input'][type='radio']:not([name^='base:']):checked").each(function(index, element) {
-					var path={};
-					var names = $(element).attr("name").split("-");
-					names[0].split(",").forEach(function(item){
-						var a = item.split(":");
-						debugWrite("a[0]",a[0]);
-						debugWrite("a[1]",a[1]);
-						path[a[0]]=a[1];
-					});
-					if(like(path,service)) {
-						var b = names[1].split(":");
-						debugWrite("b[1]",b[1]);
-						where[b[1]]=$(element).attr("value");
-					}
-				});
-				totals.push({
-					summary:"planType",
-					service:item,
-					value:columns[lang].planType[$("input[name='service:"+item+"-base:planType'][type='radio']:checked").attr("value")]
-				});
-				for(var prop in subtotals) {
-					where["option"]=prop;
-					subtotals[prop].push(Enumerable.From(fee)
-						.Where(function(x){return like(where,x);})
-						.Sum(function(x){return x.value;}));
-				}
-			} else {
-				totals.push({
-					summary:"planType",
-					service:item,
-					value:"-"
-				});
-			}
-		}
-		debugWrite('subtotals["discount"]',subtotals["discount"]);
-		debugWrite('subtotals["couponAmount"]',subtotals["couponAmount"]);
-		debugWrite('subtotals["annualStorage"]',subtotals["annualStorage"]);
-		debugWrite('subtotals["bloodProcessingAndTesting"]',subtotals["bloodProcessingAndTesting"]);
-		debugWrite('subtotals["tissueProcessingAndTesting"]',subtotals["tissueProcessingAndTesting"]);
-		debugWrite('subtotals["menstrualProcessingAndTesting"]',subtotals["menstrualProcessingAndTesting"]);
-		debugWrite('subtotals["medicalCourier"]',subtotals["medicalCourier"]);
-		var summary = {
-			discount:Enumerable.From(subtotals["discount"]).Aggregate(0,function(seed,x){return Math.min(seed,x);}),
-			couponAmount:Enumerable.From(subtotals["couponAmount"]).Aggregate(0,function(seed,x){return Math.min(seed,x);}),
-			medicalCourier:Enumerable.From(subtotals["medicalCourier"]).Aggregate(Enumerable.From(subtotals["medicalCourier"]).FirstOrDefault(0),function(seed,x){return Math.min(seed,x);}),
-			annualStorage:Enumerable.From(subtotals["annualStorage"]).Aggregate(0,function(seed,x){return (seed+x);}),
-			bloodProcessingAndTesting:Enumerable.From(subtotals["bloodProcessingAndTesting"]).Aggregate(0,function(seed,x){return Math.max(seed,x);}),
-			tissueProcessingAndTesting:Enumerable.From(subtotals["tissueProcessingAndTesting"]).Aggregate(0,function(seed,x){return Math.max(seed,x);}),
-			menstrualProcessingAndTesting:Enumerable.From(subtotals["menstrualProcessingAndTesting"]).Aggregate(0,function(seed,x){return Math.max(seed,x);}),
-		}
-		var values=[];
-		for(var prop in summary){
-			totals.push({
-				summary:prop,
-				value:summary[prop]
-			});
-			values.push(summary[prop]);
-		}
-		totals.push({
-			summary:"total",
-			value:Enumerable.From(values).Sum()
-		});
-		$("input[price-role='total']").each(function(index, input) {
-			var where={};
-			$(input).attr("name").split(",").forEach(function(item){
-				var a = item.split(":");
-				where[a[0]]=a[1];
-			});
-			var value=Enumerable.From(totals).First(function(x){return like(where,x);}).value;
-			if(value!=$(input).val()) {
-				$(input).val(value);
-				$("div[id='"+$(input).attr("name")+"']").shuffleLetters({
-					text: $(input).val()
-				});
-			}
+        $(t).remove();
+    }
+
+    function like(where, item) {
+        var b = true;
+        for (var prop in where)
+            b = b && ((typeof(item[prop]) == "undefined")
+                || (item[prop] == "*")
+                || (item[prop] == where[prop]));
+        return b;
+    }
+
+    function isNullOrWhitespace(input) {
+        if (input == null) return true;
+        return input.replace(/\s/g, '').length < 1;
+    }
+
+    var updatePriceForm = function() {
+        var lang = $(document).data("lang");
+        var fee = $(document).data("fee");
+        var columns = $(document).data("columns");
+        debugWrite("lang", lang);
+        debugWrite("fee", fee);
+        debugWrite("columns", columns);
+        var base = {};
+        $("input[price-role='input'][type='radio'][name^='base:']:checked").each(function(index, element) {
+            var b = $(element).attr("name").split(":");
+            debugWrite("b[0]", b[0]);
+            debugWrite("b[1]", b[1]);
+            base[b[0]] = base[b[0]] || {};
+            base[b[0]][b[1]] = $(element).attr("value");
         });
-	};
-	var updateMenstrualStemCell = function(){
-		debugWrite("updateMenstrualStemCell","start");
-		var page = $(this).data("page");
-		if($("input[name='menstrualStemCell:base']",page).prop('checked')) {
-			$("div[price-role='page']").removeClass("col-md-4").addClass("col-md-3");
-			$("div[id='menstrualStemCell:base']",page).show("fast",function(){
-				updateCenterElementContent();
-				updateFullScreenElement();
-				updateWindowBorderElement();
-			});
-		}
+        $("input[price-role='subtotal']").each(function(index, input) {
+            for (var prop in base["base"]) debugWrite("base['base'][" + prop + "]", base["base"][prop]);
+            debugWrite("$(input).attr('name')", $(input).attr("name"));
+            var context = $.extend({}, base);
+            context["base"] = $.extend({}, base["base"]);
+            var names = $(input).attr("name").split("-");
+            names[0].split(",").forEach(function(item) {
+                var a = item.split(":");
+                debugWrite("a[0]", a[0]);
+                debugWrite("a[1]", a[1]);
+                context["base"][a[0]] = a[1];
+            });
+            $("input[price-role='input'][type='radio']:not([name^='base:']):checked").each(function(index, element) {
+                var path = {};
+                var names = $(element).attr("name").split("-");
+                debugWrite("names[0]", names[0]);
+                names[0].split(",").forEach(function(item) {
+                    var a = item.split(":");
+                    debugWrite("a[0]", a[0]);
+                    debugWrite("a[1]", a[1]);
+                    path[a[0]] = a[1];
+                });
+                if (like(path, context["base"])) {
+                    var b = names[1].split(":");
+                    debugWrite("b[1]", b[1]);
+                    context["base"][b[1]] = $(element).attr("value");
+                }
+            });
+            for (var prop in context["base"]) debugWrite("context['base'][" + prop + "]", context["base"][prop]);
+            var value = Enumerable.From(fee).Where(function(x) { return like(context["base"], x); }).Sum(function(x) { return x.value; });
+            debugWrite("value", value);
+            if (value != $(input).val()) {
+                $(input).val(value);
+                $("div[id='" + $(input).attr("name") + "']").shuffleLetters({
+                    text: $(input).val()
+                });
+            }
+        });
+        var totals = [];
+        var subtotals = {};
+        for (var prop in columns[lang].option) subtotals[prop] = [];
+        for (var item in columns[lang].service) {
+            if ($("input[name='" + item + ":base']:checked").length > 0) {
+                var service = {};
+                service["service"] = item;
+                var where = $.extend({}, base["base"], service);
+                $("input[price-role='input'][type='radio']:not([name^='base:']):checked").each(function(index, element) {
+                    var path = {};
+                    var names = $(element).attr("name").split("-");
+                    names[0].split(",").forEach(function(item) {
+                        var a = item.split(":");
+                        debugWrite("a[0]", a[0]);
+                        debugWrite("a[1]", a[1]);
+                        path[a[0]] = a[1];
+                    });
+                    if (like(path, service)) {
+                        var b = names[1].split(":");
+                        debugWrite("b[1]", b[1]);
+                        where[b[1]] = $(element).attr("value");
+                    }
+                });
+                totals.push({
+                    summary: "planType",
+                    service: item,
+                    value: columns[lang].planType[$("input[name='service:" + item + "-base:planType'][type='radio']:checked").attr("value")]
+                });
+                for (var prop in subtotals) {
+                    where["option"] = prop;
+                    subtotals[prop].push(Enumerable.From(fee)
+                        .Where(function(x) { return like(where, x); })
+                        .Sum(function(x) { return x.value; }));
+                }
+            } else {
+                totals.push({
+                    summary: "planType",
+                    service: item,
+                    value: "-"
+                });
+            }
+        }
+        debugWrite('subtotals["discount"]', subtotals["discount"]);
+        debugWrite('subtotals["couponAmount"]', subtotals["couponAmount"]);
+        debugWrite('subtotals["annualStorage"]', subtotals["annualStorage"]);
+        debugWrite('subtotals["bloodProcessingAndTesting"]', subtotals["bloodProcessingAndTesting"]);
+        debugWrite('subtotals["tissueProcessingAndTesting"]', subtotals["tissueProcessingAndTesting"]);
+        debugWrite('subtotals["menstrualProcessingAndTesting"]', subtotals["menstrualProcessingAndTesting"]);
+        debugWrite('subtotals["medicalCourier"]', subtotals["medicalCourier"]);
+        var summary = {
+            discount: Enumerable.From(subtotals["discount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
+            couponAmount: Enumerable.From(subtotals["couponAmount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
+            medicalCourier: Enumerable.From(subtotals["medicalCourier"]).Aggregate(Enumerable.From(subtotals["medicalCourier"]).FirstOrDefault(0), function(seed, x) { return Math.min(seed, x); }),
+            annualStorage: Enumerable.From(subtotals["annualStorage"]).Aggregate(0, function(seed, x) { return (seed + x); }),
+            bloodProcessingAndTesting: Enumerable.From(subtotals["bloodProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+            tissueProcessingAndTesting: Enumerable.From(subtotals["tissueProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+            menstrualProcessingAndTesting: Enumerable.From(subtotals["menstrualProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+        };
+        var values = [];
+        for (var prop in summary) {
+            totals.push({
+                summary: prop,
+                value: summary[prop]
+            });
+            values.push(summary[prop]);
+        }
+        totals.push({
+            summary: "total",
+            value: Enumerable.From(values).Sum()
+        });
+        $("input[price-role='total']").each(function(index, input) {
+            var where = {};
+            $(input).attr("name").split(",").forEach(function(item) {
+                var a = item.split(":");
+                where[a[0]] = a[1];
+            });
+            var value = Enumerable.From(totals).First(function(x) { return like(where, x); }).value;
+            if (value != $(input).val()) {
+                $(input).val(value);
+                $("div[id='" + $(input).attr("name") + "']").shuffleLetters({
+                    text: $(input).val()
+                });
+            }
+        });
+    };
+    var updateMenstrualStemCell = function() {
+        debugWrite("updateMenstrualStemCell", "start");
+        var page = $(this).data("page");
+        if ($("input[name='menstrualStemCell:base']", page).prop('checked')) {
+            $("div[price-role='page']").removeClass("col-md-4").addClass("col-md-3");
+            $("div[id='menstrualStemCell:base']", page).show("fast", function() {
+                updateCenterElementContent();
+                updateFullScreenElement();
+                updateWindowBorderElement();
+            });
+        }
 //		$("div[id='menstrualStemCell:base']",page).toggle(
 //			$("input[name='menstrualStemCell:base']",page).prop('checked'));
-		if(!$("input[name='menstrualStemCell:base']",page).prop('checked')){
-			$("div[id='menstrualStemCell:base']",page).hide("fast",function(){
-				updateCenterElementContent();
-				updateFullScreenElement();
-				updateWindowBorderElement();
-			});
-			$("div[price-role='page']").removeClass("col-md-3").addClass("col-md-4");
-		}
-	};
-	var updateUmbilicalCordBloodAndTissue = function(){
-		debugWrite("updateUmbilicalCordBloodAndTissue","start");
-		var page = $(this).data("page");
-		if($("input[name='umbilicalCordBloodAndTissue:base']",page).prop('checked')) {
-			$("label[for='umbilicalCordBlood:base']",page).removeClass("active");
-			$("input[name='umbilicalCordBlood:base']",page).prop('checked', false);
-		}
-	};
-	var updateUmbilicalCordBlood = function(){
-		debugWrite("updateUmbilicalCordBlood","start");
-		var page = $(this).data("page");
-		if($("input[name='umbilicalCordBlood:base']",page).prop('checked')) {
-			$("label[for='umbilicalCordBloodAndTissue:base']",page).removeClass("active");
-			$("input[name='umbilicalCordBloodAndTissue:base']",page).prop('checked', false);
-		}
-	};
-	$.centerElementContent = '.center-element-content';
-	var updateCenterElementContent = function () { 
-		$($.centerElementContent).each(function(index,wrapper) {
-			var maxWidth = $(wrapper).width()+"px";
-			var maxHeight = $(wrapper).height()+"px";
-			$(wrapper).children().each(function(index, element) {
-				$(element).css("maxWidth",maxWidth);
-				$(element).css("maxHeight",maxHeight); 
-				$(element).css("margin-top",(($(wrapper).height()-$(element).height())/2) + "px"); 
-				$(element).css("margin-left","auto");  
-				$(element).css("margin-right","auto");  
-				$(element).css("margin-bottom","auto"); 
-			});
-		});
-	}
-	$.fullScreenElement = '.full-screen-element';
-	var updateFullScreenElement = function() { 
-		$($.fullScreenElement).not($.centerElementContent).each(function(index, element) { 
-			$(element).css("minWidth",$(window).width()+"px");
-			$(element).css("minHeight",$(window).height()+"px");
-		});
-	}
-	$.windowBorders = ["left","right","top","bottom"];
-	$.windowBorders.forEach(function(item) {
-		$[item+"BorderElement"] = "."+item+"-border-element";
-	});
-	var updateWindowBorderElement = function() { 
-		$.windowBorders.forEach(function(item) {
-			$($[item+"BorderElement"]).each(function(index,element) {
-				var wrapper = $(element).parent();
-				var wrapperOffset = $(wrapper).offset();
-				$(element).data("foo")(element,wrapper,wrapperOffset);
-				$(element).data("bar")(element,wrapper,wrapperOffset);
-			});
-		});
-	}
-	var initPriceForm = function() {
-		var lang = $.culture||"en";
-		var fee = $.fee;
-		var columns = $.priceColumns;
-		var wrapper = $.priceFormWrapper;
-		debugWrite("$.isMobile",$.isMobile);
-		debugWrite("$.culture",$.culture);
-		debugWrite("lang",lang);
-		debugWrite("fee",fee);
-		debugWrite("columns",columns);
-		debugWrite("wrapper",wrapper);
-		$(document).data("lang",lang);
-		$(document).data("fee",fee);
-		$(document).data("columns",columns);
-		$(wrapper).each(function(index, wrapper) {
-			var page = $(priceFormHTML);
-			$(wrapper).after(page);
-			if ($.isMobile) {
-				$("table",page).each(function(index, element) {
-					flatTable(element);
-				});
-			} else {
-//				$(".buttonset",page).each(function(index, element) {$(element).buttonset();});
-				$("input[price-role='subtotal'],input[price-role='total']",page).attr("type","hidden");
-				$("input[price-role='subtotal'],input[price-role='total']",page).each(function(index, element) {
-                    $(element).before("<div id='"+$(element).attr("name")+"' class='shuffleLetters lead "+$(element).attr("price-role")+"'></div>");
-                });
-			}			
-			// Перевод заголовков полей формы на указанный язык
-			$("label",page).each(function(index, element) {
-				debugWrite("for",$(element).attr("for"));
-                var names=$(element).attr("for").split("-");
-				names=names[names.length-1].split(",");
-				names=names[names.length-1].split(":");
-				$(element).contents().filter(function() {
-				  	return this.nodeType === 3 && !isNullOrWhitespace(this.textContent);
-				}).each(function(){
-					this.textContent = columns[lang][names[0]][names[1]];
-				});
-			});
-			$("input",page).data("page",page);
+        if (!$("input[name='menstrualStemCell:base']", page).prop('checked')) {
+            $("div[id='menstrualStemCell:base']", page).hide("fast", function() {
+                updateCenterElementContent();
+                updateFullScreenElement();
+                updateWindowBorderElement();
+            });
+            $("div[price-role='page']").removeClass("col-md-3").addClass("col-md-4");
+        }
+    };
+    var updateUmbilicalCordBloodAndTissue = function() {
+        debugWrite("updateUmbilicalCordBloodAndTissue", "start");
+        var page = $(this).data("page");
+        if ($("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked')) {
+            $("label[for='umbilicalCordBlood:base']", page).removeClass("active");
+            $("input[name='umbilicalCordBlood:base']", page).prop('checked', false);
+        }
+    };
+    var updateUmbilicalCordBlood = function() {
+        debugWrite("updateUmbilicalCordBlood", "start");
+        var page = $(this).data("page");
+        if ($("input[name='umbilicalCordBlood:base']", page).prop('checked')) {
+            $("label[for='umbilicalCordBloodAndTissue:base']", page).removeClass("active");
+            $("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked', false);
+        }
+    };
+    $.centerElementContent = '.center-element-content';
+    var updateCenterElementContent = function() {
+        $($.centerElementContent).each(function(index, wrapper) {
+            var maxWidth = $(wrapper).width() + "px";
+            var maxHeight = $(wrapper).height() + "px";
+            $(wrapper).children().each(function(index, element) {
+                $(element).css("maxWidth", maxWidth);
+                $(element).css("maxHeight", maxHeight);
+                $(element).css("margin-top", (($(wrapper).height() - $(element).height()) / 2) + "px");
+                $(element).css("margin-left", "auto");
+                $(element).css("margin-right", "auto");
+                $(element).css("margin-bottom", "auto");
+            });
         });
-		$(wrapper).remove();
-		// Установка поля языка
-		// We need to add some logic there to pass a language used on the form to Salesforce as a new custom field
-		// and also after the form post to redirect to a localized thank you page.
-		$("input[name='culture']").val(lang);			
-		$("input[name='umbilicalCordBlood:base']").change(updateUmbilicalCordBlood);
-		$("input[name='umbilicalCordBloodAndTissue:base']").change(updateUmbilicalCordBloodAndTissue);
-		$("input[name='menstrualStemCell:base']").change(updateMenstrualStemCell);
-		$("input[name='menstrualStemCell:base']").change(updateCenterElementContent);
-		$("input[name='menstrualStemCell:base']").change(updateFullScreenElement);
-		$("input[name='menstrualStemCell:base']").change(updateWindowBorderElement);
-		$("input[price-role='input']").change(updatePriceForm);
-	}	
-	var dataAjaxFalse = function(){
-		$("a").attr("data-ajax","false");
-	}	
-	$(document).bind('pagebeforecreate', initPriceForm);
-	$(document).ready(initPriceForm);
-	$(document).ready(updateUmbilicalCordBlood);
-	$(document).ready(updateUmbilicalCordBloodAndTissue);
-	$(document).ready(updateMenstrualStemCell);
-	$(document).ready(updateCenterElementContent);
-	$(document).ready(updateFullScreenElement); 
-	$(document).ready(updateWindowBorderElement);
-	$(document).ready(updatePriceForm);
-	$(document).ready(dataAjaxFalse);
-	$(document).resize(updateCenterElementContent);
-	$(document).resize(updateFullScreenElement);
-	$(document).resize(updateWindowBorderElement);
-	$(window).resize(updateCenterElementContent);
-	$(window).resize(updateFullScreenElement);
-	$(window).resize(updateWindowBorderElement);
-	$(document).ajaxComplete(updateCenterElementContent);
-	$(document).ajaxComplete(updateFullScreenElement);
-	$(document).ajaxComplete(updateWindowBorderElement);
-	$(document).ajaxComplete(dataAjaxFalse);
-	$(document).ajaxStop(updateCenterElementContent);
-	$(document).ajaxStop(updateFullScreenElement);
-	$(document).ajaxStop(updateWindowBorderElement);
-	$(document).ajaxStop(dataAjaxFalse);
+    };
+    $.fullScreenElement = '.full-screen-element';
+    var updateFullScreenElement = function() {
+        $($.fullScreenElement).not($.centerElementContent).each(function(index, element) {
+            $(element).css("minWidth", $(window).width() + "px");
+            $(element).css("minHeight", $(window).height() + "px");
+        });
+    };
+    $.windowBorders = ["left", "right", "top", "bottom"];
+    $.windowBorders.forEach(function(item) {
+        $[item + "BorderElement"] = "." + item + "-border-element";
+    });
+    var updateWindowBorderElement = function() {
+        $.windowBorders.forEach(function(item) {
+            $($[item + "BorderElement"]).each(function(index, element) {
+                var wrapper = $(element).parent();
+                var wrapperOffset = $(wrapper).offset();
+                $(element).data("foo")(element, wrapper, wrapperOffset);
+                $(element).data("bar")(element, wrapper, wrapperOffset);
+            });
+        });
+    };
+    var initPriceForm = function() {
+        var lang = $.culture || "en";
+        var fee = $.fee;
+        var columns = $.priceColumns;
+        var wrapper = $.priceFormWrapper;
+        debugWrite("$.isMobile", $.isMobile);
+        debugWrite("$.culture", $.culture);
+        debugWrite("lang", lang);
+        debugWrite("fee", fee);
+        debugWrite("columns", columns);
+        debugWrite("wrapper", wrapper);
+        $(document).data("lang", lang);
+        $(document).data("fee", fee);
+        $(document).data("columns", columns);
+        $(wrapper).each(function(index, wrapper) {
+            var page = $(priceFormHtml);
+            $(wrapper).after(page);
+            if ($.isMobile) {
+                $("table", page).each(function(index, element) {
+                    flatTable(element);
+                });
+            } else {
+//				$(".buttonset",page).each(function(index, element) {$(element).buttonset();});
+                $("input[price-role='subtotal'],input[price-role='total']", page).attr("type", "hidden");
+                $("input[price-role='subtotal'],input[price-role='total']", page).each(function(index, element) {
+                    $(element).before("<div id='" + $(element).attr("name") + "' class='shuffleLetters lead " + $(element).attr("price-role") + "'></div>");
+                });
+            }
+            // Перевод заголовков полей формы на указанный язык
+            $("label", page).each(function(index, element) {
+                debugWrite("for", $(element).attr("for"));
+                var names = $(element).attr("for").split("-");
+                names = names[names.length - 1].split(",");
+                names = names[names.length - 1].split(":");
+                $(element).contents().filter(function() {
+                    return this.nodeType === 3 && !isNullOrWhitespace(this.textContent);
+                }).each(function() {
+                    this.textContent = columns[lang][names[0]][names[1]];
+                });
+            });
+            $("input", page).data("page", page);
+        });
+        $(wrapper).remove();
+        // Установка поля языка
+        // We need to add some logic there to pass a language used on the form to Salesforce as a new custom field
+        // and also after the form post to redirect to a localized thank you page.
+        $("input[name='culture']").val(lang);
+        $("input[name='umbilicalCordBlood:base']").change(updateUmbilicalCordBlood);
+        $("input[name='umbilicalCordBloodAndTissue:base']").change(updateUmbilicalCordBloodAndTissue);
+        $("input[name='menstrualStemCell:base']").change(updateMenstrualStemCell);
+        $("input[name='menstrualStemCell:base']").change(updateCenterElementContent);
+        $("input[name='menstrualStemCell:base']").change(updateFullScreenElement);
+        $("input[name='menstrualStemCell:base']").change(updateWindowBorderElement);
+        $("input[price-role='input']").change(updatePriceForm);
+    };
+    var dataAjaxFalse = function() {
+        $("a").attr("data-ajax", "false");
+    };
+    $(document).bind('pagebeforecreate', initPriceForm);
+    $(document).ready(initPriceForm);
+    $(document).ready(updateUmbilicalCordBlood);
+    $(document).ready(updateUmbilicalCordBloodAndTissue);
+    $(document).ready(updateMenstrualStemCell);
+    $(document).ready(updateCenterElementContent);
+    $(document).ready(updateFullScreenElement);
+    $(document).ready(updateWindowBorderElement);
+    $(document).ready(updatePriceForm);
+    $(document).ready(dataAjaxFalse);
+    $(document).resize(updateCenterElementContent);
+    $(document).resize(updateFullScreenElement);
+    $(document).resize(updateWindowBorderElement);
+    $(window).resize(updateCenterElementContent);
+    $(window).resize(updateFullScreenElement);
+    $(window).resize(updateWindowBorderElement);
+    $(document).ajaxComplete(updateCenterElementContent);
+    $(document).ajaxComplete(updateFullScreenElement);
+    $(document).ajaxComplete(updateWindowBorderElement);
+    $(document).ajaxComplete(dataAjaxFalse);
+    $(document).ajaxStop(updateCenterElementContent);
+    $(document).ajaxStop(updateFullScreenElement);
+    $(document).ajaxStop(updateWindowBorderElement);
+    $(document).ajaxStop(dataAjaxFalse);
 })(jQuery);

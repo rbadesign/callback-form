@@ -29,32 +29,38 @@
 	<script src="/CMSScripts/Custom/mobile.js" type="text/javascript"></script>
 */
 ///////////////////////////////////////////////////////////
-(function ($) {
-	// Функция вывода сообщений трассировки
-	// Обработка try-catch требуется для совместимости с IE
-	function debugWrite(a,b) {
-		try {
-	//		console.log(a,b);
-			console.log(a+":"+b);
-		} catch (e) {
-		}
-	}
-	var init = function () {
-		debugWrite("$.isMobile",$.isMobile);
-		debugWrite("$.culture",$.culture);
-		$("a").attr("data-ajax","false");
-		$("#mainmenu").hide();
-		$( ".mainmenu" ).unbind( "vclick" );
-		$( ".mainmenu" ).bind( "vclick", function(event, ui) {
-		  if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
-		  $("#mainmenu").toggle();
-		});
-	}
-	var dataAjaxFalse = function(){
-		$("a").attr("data-ajax","false");
-	};
-	$(document).bind('pagebeforecreate',init);
-	$(document).ready(dataAjaxFalse);
-	$(document).ajaxComplete(dataAjaxFalse);	
-	$(document).ajaxStop(dataAjaxFalse);	
+(function($) {
+
+// Функция вывода сообщений трассировки
+    // Обработка try-catch требуется для совместимости с IE
+    function debugWrite(a, b) {
+        try {
+            //		console.log(a,b);
+            console.log(a + ":" + b);
+        } catch (e) {
+        }
+    }
+
+    var init = function() {
+        debugWrite("$.isMobile", $.isMobile);
+        debugWrite("$.culture", $.culture);
+        $("a").attr("data-ajax", "false");
+        $("#mainmenu").hide();
+        $(".mainmenu").unbind("vclick");
+        $(".mainmenu").bind("vclick", function(event, ui) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            $("#mainmenu").toggle();
+        });
+    };
+    var dataAjaxFalse = function() {
+        $("a").attr("data-ajax", "false");
+    };
+    $(document).bind('pagebeforecreate', init);
+    $(document).ready(dataAjaxFalse);
+    $(document).ajaxComplete(dataAjaxFalse);
+    $(document).ajaxStop(dataAjaxFalse);
 })(jQuery);

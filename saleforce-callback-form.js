@@ -112,9 +112,9 @@
 */
 ////////////////////////////////////////////////////////////////////////////////////////
 
-(function ($) {
-	
-	var callbackFormHTML = hereDoc(function() {/*!
+(function($) {
+
+    var callbackFormHtml = hereDoc(function() { /*!
 <form id="callbackForm" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 <!-- Production 
 <form id="callbackForm" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"> -->
@@ -145,476 +145,480 @@
 
 <center><input data-role="button" type="submit" name="Submit" value="Submit" class="save" onSubmit="javascript: void(0)"></center>
 </form>
-*/})
+*/
+    }); // Названия полей формы обратной связи
+    // Задаются в виде обычного текста
+    var formLabels = {
+        en: {
+            first_name: "First Name",
+            last_name: "Last Name",
+            due_date: "Due Date:",
+            phone: "Phone",
+            email: "Email",
+            doctor: "Doctor",
+        },
+        es: {
+            first_name: "Nombre",
+            last_name: "Apellido",
+            due_date: "Fecha estimada de parto",
+            phone: "Teléfono",
+            email: "Correo electrónico",
+        },
+        ru: {
+            first_name: "Имя",
+            last_name: "Фамилия",
+            due_date: "Ожидаемая дата родов",
+            phone: "Номер телефона",
+            email: "Электронная почта",
+        },
+        it: {
+            first_name: "Nome",
+            last_name: "Cognome",
+            due_date: "Data di arrivo",
+            phone: "Numero di telefono",
+            email: "Email",
+        },
+        cn: {
+            first_name: "名",
+            last_name: "姓",
+            due_date: "预产期",
+            phone: "电话号码",
+            email: "电子邮件",
+        },
+        tw: {
+            first_name: "名",
+            last_name: "姓",
+            due_date: "預產期",
+            phone: "電話號碼",
+            email: "電子郵件",
+        }
+    };
+    // Значения полей формы обратной связи
+    // Задаются в виде обычного текста
+    var formValues = {
+        en: {
+            retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        },
+        es: {
+            retURL: "/resources/request-forms/thank-you-es?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        },
+        ru: {
+            retURL: "/resources/request-forms/thank-you-ru?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        },
+        it: {
+            retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        },
+        cn: {
+            retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        },
+        tw: {
+            retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
+        }
+    };
 
-	// Названия полей формы обратной связи
-	// Задаются в виде обычного текста
-	var formLabels = {
-		en: {
-			first_name: "First Name",
-			last_name: "Last Name",
-			due_date: "Due Date:",
-			phone: "Phone",
-			email: "Email",
-			doctor: "Doctor",
-		},
-		es: {
-			first_name: "Nombre",
-			last_name: "Apellido",
-			due_date: "Fecha estimada de parto",
-			phone: "Teléfono",
-			email: "Correo electrónico",
-		},
-		ru: {
-			first_name: "Имя",
-			last_name: "Фамилия",
-			due_date: "Ожидаемая дата родов",
-			phone: "Номер телефона",
-			email: "Электронная почта",
-		},
-		it: {
-			first_name: "Nome",
-			last_name: "Cognome",
-			due_date: "Data di arrivo",
-			phone: "Numero di telefono",
-			email: "Email",
-		},
-		cn: {
-			first_name: "名",
-			last_name: "姓",
-			due_date: "预产期",
-			phone: "电话号码",
-			email: "电子邮件",
-		},
-		tw: {
-			first_name: "名",
-			last_name: "姓",
-			due_date: "預產期",
-			phone: "電話號碼",
-			email: "電子郵件",
-		}
-	};
-	// Значения полей формы обратной связи
-	// Задаются в виде обычного текста
-	var formValues = {
-		en: {
-			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		},
-		es: {
-			retURL: "/resources/request-forms/thank-you-es?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		},
-		ru: {
-			retURL: "/resources/request-forms/thank-you-ru?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		},
-		it: {
-			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		},
-		cn: {
-			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		},
-		tw: {
-			retURL: "/resources/request-forms/thank-you?utm_source=web&utm_medium=form&utm_campaign=RequestInfo",
-		}
-	};
-	
-	var thankYouHTML = hereDoc(function() {/*!
+    var thankYouHtml = hereDoc(function() { /*!
 	<h2>Thank you</h2> 
 	Your request has been sent.<br />One of our client services advisors will contact you shortly. 
-*/})
-	
-	var url = false;
-	
-	// This method is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other 
-	// implementations of the standard. To make it work you need to add following code at the top of your script:
-	if (!Array.prototype.forEach)
-	{
-	  Array.prototype.forEach = function(fun /*, thisp*/)
-	  {
-		var len = this.length;
-		if (typeof fun != "function")
-		  throw new TypeError();
-	
-		var thisp = arguments[1];
-		for (var i = 0; i < len; i++)
-		{
-		  if (i in this)
-			fun.call(thisp, this[i], i, this);
-		}
-	  };
-	}
+*/
+    });
+    var url = false;
 
-	function hereDoc(f) {
-	  return f.toString().
-		  replace(/^[^\/]+\/\*!?/, '').
-		  replace(/\*\/[^\/]+$/, '');
-	}
+    // This method is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other 
+    // implementations of the standard. To make it work you need to add following code at the top of your script:
+    if (!Array.prototype.forEach) {
+        Array.prototype.forEach = function(fun /*, thisp*/) {
+            var len = this.length;
+            if (typeof fun != "function")
+                throw new TypeError();
 
-	// Процедура кросс-доменной отправки содержимого формы ввода
-	// Параметр - отправляемая форма ввода
-	function crossDomainSubmit(item) {
-		// Add the iframe with a unique name
-		var uniqueString = "crossDomainForm-"+$("iframe").length;
-		var iframe = document.createElement("iframe");
-		document.body.appendChild(iframe);
-		iframe.style.display = "none";
-		try {
-		  iframe.contentWindow.name = uniqueString;
-		} catch(e) {
-		  debugWrite('iframe.contentWindow.name error',e);
-		}
-		debugWrite('iframe.contentWindow.name',iframe.contentWindow.name);
-	  
-		// construct a form with hidden inputs, targeting the iframe
-		var form = document.createElement("form");
-		form.target = iframe.contentWindow.name;
-		debugWrite('form.target',form.target);
-		debugWrite('item.attr("action")',item.attr("action"));
-		form.action = item.attr("action");
-		debugWrite('form.action',form.action);
-		debugWrite('item.attr("method")',item.attr("method"));
-		form.method = item.attr("method");
-		debugWrite('form.method',form.method);
-	  
-		// repeat for each parameter
-		item.find("input").each(function(index, element) {
-			if(element.name!="submit"){
-				var input = document.createElement("input");
-				input.type = "hidden";
-				debugWrite("element.name",element.name);
-				input.name = element.name;
-				debugWrite("input.name",input.name);
-				debugWrite("element.value",element.value);
-				input.value = element.value;
-				debugWrite("input.value",input.value);
-				form.appendChild(input);
-			}
-		});
-	  
-		document.body.appendChild(form);
-		form.submit();
-	}
-	
-	function currentCallbackForm() { return $("#callbackForm"); }
-	
-	function clearForm() { 
-		  $("input[name*='expected_delivery_date']").val("");
-		  $("input[name*='due_date']").val("");
-		  $("input[name*='phone']").val("");
-		  $("input[name*='first_name']").val("");
-		  $("input[name*='last_name']").val("");
-		  $("input[name*='mail']").val("");
-		  $("input").removeClass("error");
-		  $(".error").remove();
-		  $(".ErrorLabel").remove();
-		  $(".EditingFormErrorLabel").remove();
-	}
-	
-	function urldecode (str) {
-	  // http://kevin.vanzonneveld.net
-	  // +   original by: Philip Peterson
-	  // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-	  // +      input by: AJ
-	  // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-	  // +   improved by: Brett Zamir (http://brett-zamir.me)
-	  // +      input by: travc
-	  // +      input by: Brett Zamir (http://brett-zamir.me)
-	  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-	  // +   improved by: Lars Fischer
-	  // +      input by: Ratheous
-	  // +   improved by: Orlando
-	  // +      reimplemented by: Brett Zamir (http://brett-zamir.me)
-	  // +      bugfixed by: Rob
-	  // +      input by: e-mike
-	  // +   improved by: Brett Zamir (http://brett-zamir.me)
-	  // %        note 1: info on what encoding functions to use from: http://xkr.us/articles/javascript/encode-compare/
-	  // %        note 2: Please be aware that this function expects to decode from UTF-8 encoded strings, as found on
-	  // %        note 2: pages served as UTF-8
-	  // *     example 1: urldecode('Kevin+van+Zonneveld%21');
-	  // *     returns 1: 'Kevin van Zonneveld!'
-	  // *     example 2: urldecode('http%3A%2F%2Fkevin.vanzonneveld.net%2F');
-	  // *     returns 2: 'http://kevin.vanzonneveld.net/'
-	  // *     example 3: urldecode('http%3A%2F%2Fwww.google.nl%2Fsearch%3Fq%3Dphp.js%26ie%3Dutf-8%26oe%3Dutf-8%26aq%3Dt%26rls%3Dcom.ubuntu%3Aen-US%3Aunofficial%26client%3Dfirefox-a');
-	  // *     returns 3: 'http://www.google.nl/search?q=php.js&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:unofficial&client=firefox-a'
-	  return decodeURIComponent((str + '').replace(/\+/g, '%20'));
-	}
-	
-	// Функция вывода сообщений трассировки
-	// Обработка try-catch требуется для совместимости с IE
-	function debugWrite(a,b) {
-		try {
-	//		console.log(a,b);
-			console.log(a+":"+b);
-		} catch (e) {
-		}
-	}
-	
-	function showThankYou() {
-		var page = currentCallbackForm().parent();
-		page.children().remove();
-		page.append(thankYouHTML);
-	}
-	
-	function flatTable(t) {
-		$("tr",t).each(function(index, row) {
-			var html = "<div data-role='fieldcontain'>";
-			$("th,td",row).each(function(index, element) {
-				html += $(element).html()
-			});
-			html += "</div>";
-			$(t).before($(html));
-         });
-		$(t).remove();
-	}
-	
-	function createCallbackForm(wrapper) {
-		debugWrite("createCallbackForm","start");
-		debugWrite("typeof $.mobile",typeof $.mobile);
-		debugWrite("$.isMobile",$.isMobile);
-		debugWrite("$.culture",$.culture);
-		var page = $(callbackFormHTML);
-		$(wrapper).after(page);
-		$(wrapper).remove();
-		
-		if ($.isMobile) {
-			$("table",page).each(function(index, element) {
+            var thisp = arguments[1];
+            for (var i = 0; i < len; i++) {
+                if (i in this)
+                    fun.call(thisp, this[i], i, this);
+            }
+        };
+    }
+
+    function hereDoc(f) {
+        return f.toString().
+            replace(/^[^\/]+\/\*!?/, '').
+            replace(/\*\/[^\/]+$/, '');
+    }
+
+    // Процедура кросс-доменной отправки содержимого формы ввода
+    // Параметр - отправляемая форма ввода
+    function crossDomainSubmit(item) {
+        // Add the iframe with a unique name
+        var uniqueString = "crossDomainForm-" + $("iframe").length;
+        var iframe = document.createElement("iframe");
+        document.body.appendChild(iframe);
+        iframe.style.display = "none";
+        try {
+            iframe.contentWindow.name = uniqueString;
+        } catch (e) {
+            debugWrite('iframe.contentWindow.name error', e);
+        }
+        debugWrite('iframe.contentWindow.name', iframe.contentWindow.name);
+
+        // construct a form with hidden inputs, targeting the iframe
+        var form = document.createElement("form");
+        form.target = iframe.contentWindow.name;
+        debugWrite('form.target', form.target);
+        debugWrite('item.attr("action")', item.attr("action"));
+        form.action = item.attr("action");
+        debugWrite('form.action', form.action);
+        debugWrite('item.attr("method")', item.attr("method"));
+        form.method = item.attr("method");
+        debugWrite('form.method', form.method);
+
+        // repeat for each parameter
+        item.find("input").each(function(index, element) {
+            if (element.name != "submit") {
+                var input = document.createElement("input");
+                input.type = "hidden";
+                debugWrite("element.name", element.name);
+                input.name = element.name;
+                debugWrite("input.name", input.name);
+                debugWrite("element.value", element.value);
+                input.value = element.value;
+                debugWrite("input.value", input.value);
+                form.appendChild(input);
+            }
+        });
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function currentCallbackForm() { return $("#callbackForm"); }
+
+    function clearForm() {
+        $("input[name*='expected_delivery_date']").val("");
+        $("input[name*='due_date']").val("");
+        $("input[name*='phone']").val("");
+        $("input[name*='first_name']").val("");
+        $("input[name*='last_name']").val("");
+        $("input[name*='mail']").val("");
+        $("input").removeClass("error");
+        $(".error").remove();
+        $(".ErrorLabel").remove();
+        $(".EditingFormErrorLabel").remove();
+    }
+
+    function urldecode(str) {
+        // http://kevin.vanzonneveld.net
+        // +   original by: Philip Peterson
+        // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // +      input by: AJ
+        // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // +   improved by: Brett Zamir (http://brett-zamir.me)
+        // +      input by: travc
+        // +      input by: Brett Zamir (http://brett-zamir.me)
+        // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // +   improved by: Lars Fischer
+        // +      input by: Ratheous
+        // +   improved by: Orlando
+        // +      reimplemented by: Brett Zamir (http://brett-zamir.me)
+        // +      bugfixed by: Rob
+        // +      input by: e-mike
+        // +   improved by: Brett Zamir (http://brett-zamir.me)
+        // %        note 1: info on what encoding functions to use from: http://xkr.us/articles/javascript/encode-compare/
+        // %        note 2: Please be aware that this function expects to decode from UTF-8 encoded strings, as found on
+        // %        note 2: pages served as UTF-8
+        // *     example 1: urldecode('Kevin+van+Zonneveld%21');
+        // *     returns 1: 'Kevin van Zonneveld!'
+        // *     example 2: urldecode('http%3A%2F%2Fkevin.vanzonneveld.net%2F');
+        // *     returns 2: 'http://kevin.vanzonneveld.net/'
+        // *     example 3: urldecode('http%3A%2F%2Fwww.google.nl%2Fsearch%3Fq%3Dphp.js%26ie%3Dutf-8%26oe%3Dutf-8%26aq%3Dt%26rls%3Dcom.ubuntu%3Aen-US%3Aunofficial%26client%3Dfirefox-a');
+        // *     returns 3: 'http://www.google.nl/search?q=php.js&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:unofficial&client=firefox-a'
+        return decodeURIComponent((str + '').replace(/\+/g, '%20'));
+    }
+
+    // Функция вывода сообщений трассировки
+    // Обработка try-catch требуется для совместимости с IE
+    function debugWrite(a, b) {
+        try {
+            //		console.log(a,b);
+            console.log(a + ":" + b);
+        } catch (e) {
+        }
+    }
+
+    function showThankYou() {
+        var page = currentCallbackForm().parent();
+        page.children().remove();
+        page.append(thankYouHtml);
+    }
+
+    function flatTable(t) {
+        $("tr", t).each(function(index, row) {
+            var html = "<div data-role='fieldcontain'>";
+            $("th,td", row).each(function(index, element) {
+                html += $(element).html();
+            });
+            html += "</div>";
+            $(t).before($(html));
+        });
+        $(t).remove();
+    }
+
+    function createCallbackForm(wrapper) {
+        debugWrite("createCallbackForm", "start");
+        debugWrite("typeof $.mobile", typeof $.mobile);
+        debugWrite("$.isMobile", $.isMobile);
+        debugWrite("$.culture", $.culture);
+        var page = $(callbackFormHtml);
+        $(wrapper).after(page);
+        $(wrapper).remove();
+
+        if ($.isMobile) {
+            $("table", page).each(function(index, element) {
                 flatTable(element);
             });
-		}
-		
-		// Разбор строки запроса на элементы
-		try {
-			url = $.url(window.location.toString());
-		} catch (e) {
-			debugWrite("$.url error",e);
-		}
-		
-		// Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
-		var lang = $.culture||"en";
-		
-		// Перевод заголовков полей формы на указанный язык
-		for(var lblFor in formLabels[lang]) {
-			page.find("label[for='"+lblFor+"']").text(formLabels[lang][lblFor]);
-		}
-		// Установка значений полей формы в предопределённые значения
-		for(var inputName in formValues[lang]) {
-			page.find("input[name='"+inputName+"']").val(formValues[lang][inputName]);
-		}
-		// Установка поля языка
-		// We need to add some logic there to pass a language used on the form to Salesforce as a new custom field
-		// and also after the form post to redirect to a localized thank you page.
-		page.find("input[name='culture']").attr('value',lang);
-		
-		debugWrite("Устанавливаем типы полей ввода","start");
-		$("input[name*='expected_delivery_date']",page).attr("type","date");
-		$("input[name*='due_date']",page).attr("type","date");
-		$("input[name*='phone']",page).attr("type","tel");
-		$("input[name*='mail']",page).attr("type","email");
-		debugWrite("Устанавливаем типы полей ввода","end");
-			
-		debugWrite("Заполняем элементы ввода значениями переданными в параметрах","start");
-		try {
-			url.attr("query").split("&").forEach(function (value,index) {
-				var ar = value.split("=");
-				debugWrite(ar[0],ar[1]);
-				$("input[name*='"+ar[0]+"']").val(urldecode(ar[1]));
-			});
-		} catch (e) {
-			debugWrite('url.attr("query").split("&").forEach error',e);
-		}
-		debugWrite("Заполняем элементы ввода значениями переданными в параметрах","end");
-	
-		page.find(".save").bind("vclick",function(event) {
-			if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
-			var isValid = false;
-			debugWrite("Валидация формы обратной связи","start");
-			try {
-				var form = currentCallbackForm();
-				debugWrite('form',form.html());
-				isValid = form.valid();
-			} catch (e) {
-				debugWrite('form.valid() error',e);
-				debugWrite("Ручная валидация формы обратной связи","start");
-				$("input").removeClass("error");
-				$(".error").remove();
-				$(".ErrorLabel").remove();
-				$(".EditingFormErrorLabel").remove();
-				isValid = true;
-				var form = currentCallbackForm();
-				form.find("input.required").each(function(index, element) {
-					debugWrite("Валидация элемента",element.getAttribute("name"));
-					if(!element.value) {
-						debugWrite("Элемент не валидный",element);
-						isValid = false;
-						debugWrite("Добавление сообщения об ошибке","start");
-						//$(element).addClass("error");
-						var error = document.createElement("label");
-						error.setAttribute("for",element.getAttribute("name"));
-						error.className = 'error';
-						element.parentNode.appendChild(error);
-						debugWrite("Добавление сообщения об ошибке","end");
-					}
-				});
-				debugWrite("Ручная валидация формы обратной связи","end");
-			}
-			debugWrite("Валидация формы обратной связи","end");
-			if (isValid) {
-				debugWrite("Отправка формы обратной связи","start");
-				try {
-					var form = currentCallbackForm();
-					form.ajaxSubmit({
-						timeout:   3000,
-						dataFilter: function( data, type ) {
-							debugWrite("data:",data);
-							debugWrite("type:",type);
-						},
-						success:    function() { 
-							showThankYou();
-						},
-						beforeSend:		function(xhr, settings) {
-							debugWrite("xhr:",xhr);
-							debugWrite("settings:",settings);
-						},
-						error:		function(xhr, textStatus, thrownError) {
-							// Here's where you handle an error response.
-							// Note that if the error was due to a CORS issue,
-							// this function will still fire, but there won't be any additional
-							// information about the error.
-							debugWrite("#callbackForm","Error to send form");
-							debugWrite("xhr:",xhr);
-							debugWrite("textStatus:",textStatus);
-							debugWrite("thrownError:",thrownError);
-							debugWrite("Ручная отправка кросс-доменной формы обратной связи","start");
-							crossDomainSubmit(currentCallbackForm());
-							showThankYou();
-							debugWrite("Ручная отправка кросс-доменной формы обратной связи","end");
-						}
-					});
-				} catch (e) {
-					debugWrite('currentCallbackForm().ajaxSubmit error',e);
-					debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2","start");
-					try {
-						crossDomainSubmit(currentCallbackForm());
-						showThankYou();
-					} catch(e) {
-						debugWrite("crossDomainSubmit error",e);
-					}
-					debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2","end");					
-				}
-				debugWrite("Отправка формы обратной связи","end");
-			}
-			return false;
-		});
-		
-		page.find(".save").dblclick(function(event) {
-			if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
-			showThankYou();
-			return false;
-		});
-	
-		debugWrite("createCallbackForm","end");
-	}
-	
-	$(document).bind('pagebeforecreate', function( event, data ){
-		debugWrite("document","pagebeforecreate");
-		var wrapper = "#saleforce-callback-form-wrapper";
-		if($(wrapper).length>0) createCallbackForm(wrapper);
-	});
-	
-	$(document).ready(function(){
-		debugWrite("document","ready");
-		var wrapper = "#saleforce-callback-form-wrapper";
-		if($(wrapper).length>0) createCallbackForm(wrapper);
-		// Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
-		var lang = $.culture||"en";
-		
-		debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>","start");
-		// Проверка встроенной поддержки для <input type="date">
+        }
+
+        // Разбор строки запроса на элементы
+        try {
+            url = $.url(window.location.toString());
+        } catch (e) {
+            debugWrite("$.url error", e);
+        }
+
+        // Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
+        var lang = $.culture || "en";
+
+        // Перевод заголовков полей формы на указанный язык
+        for (var lblFor in formLabels[lang]) {
+            page.find("label[for='" + lblFor + "']").text(formLabels[lang][lblFor]);
+        }
+        // Установка значений полей формы в предопределённые значения
+        for (var inputName in formValues[lang]) {
+            page.find("input[name='" + inputName + "']").val(formValues[lang][inputName]);
+        }
+        // Установка поля языка
+        // We need to add some logic there to pass a language used on the form to Salesforce as a new custom field
+        // and also after the form post to redirect to a localized thank you page.
+        page.find("input[name='culture']").attr('value', lang);
+
+        debugWrite("Устанавливаем типы полей ввода", "start");
+        $("input[name*='expected_delivery_date']", page).attr("type", "date");
+        $("input[name*='due_date']", page).attr("type", "date");
+        $("input[name*='phone']", page).attr("type", "tel");
+        $("input[name*='mail']", page).attr("type", "email");
+        debugWrite("Устанавливаем типы полей ввода", "end");
+
+        debugWrite("Заполняем элементы ввода значениями переданными в параметрах", "start");
+        try {
+            url.attr("query").split("&").forEach(function(value, index) {
+                var ar = value.split("=");
+                debugWrite(ar[0], ar[1]);
+                $("input[name*='" + ar[0] + "']").val(urldecode(ar[1]));
+            });
+        } catch (e) {
+            debugWrite('url.attr("query").split("&").forEach error', e);
+        }
+        debugWrite("Заполняем элементы ввода значениями переданными в параметрах", "end");
+
+        page.find(".save").bind("vclick", function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            var isValid = false;
+            debugWrite("Валидация формы обратной связи", "start");
+            try {
+                var form = currentCallbackForm();
+                debugWrite('form', form.html());
+                isValid = form.valid();
+            } catch (e) {
+                debugWrite('form.valid() error', e);
+                debugWrite("Ручная валидация формы обратной связи", "start");
+                $("input").removeClass("error");
+                $(".error").remove();
+                $(".ErrorLabel").remove();
+                $(".EditingFormErrorLabel").remove();
+                isValid = true;
+                var form = currentCallbackForm();
+                form.find("input.required").each(function(index, element) {
+                    debugWrite("Валидация элемента", element.getAttribute("name"));
+                    if (!element.value) {
+                        debugWrite("Элемент не валидный", element);
+                        isValid = false;
+                        debugWrite("Добавление сообщения об ошибке", "start");
+                        //$(element).addClass("error");
+                        var error = document.createElement("label");
+                        error.setAttribute("for", element.getAttribute("name"));
+                        error.className = 'error';
+                        element.parentNode.appendChild(error);
+                        debugWrite("Добавление сообщения об ошибке", "end");
+                    }
+                });
+                debugWrite("Ручная валидация формы обратной связи", "end");
+            }
+            debugWrite("Валидация формы обратной связи", "end");
+            if (isValid) {
+                debugWrite("Отправка формы обратной связи", "start");
+                try {
+                    var form = currentCallbackForm();
+                    form.ajaxSubmit({
+                        timeout: 3000,
+                        dataFilter: function(data, type) {
+                            debugWrite("data:", data);
+                            debugWrite("type:", type);
+                        },
+                        success: function() {
+                            showThankYou();
+                        },
+                        beforeSend: function(xhr, settings) {
+                            debugWrite("xhr:", xhr);
+                            debugWrite("settings:", settings);
+                        },
+                        error: function(xhr, textStatus, thrownError) {
+                            // Here's where you handle an error response.
+                            // Note that if the error was due to a CORS issue,
+                            // this function will still fire, but there won't be any additional
+                            // information about the error.
+                            debugWrite("#callbackForm", "Error to send form");
+                            debugWrite("xhr:", xhr);
+                            debugWrite("textStatus:", textStatus);
+                            debugWrite("thrownError:", thrownError);
+                            debugWrite("Ручная отправка кросс-доменной формы обратной связи", "start");
+                            crossDomainSubmit(currentCallbackForm());
+                            showThankYou();
+                            debugWrite("Ручная отправка кросс-доменной формы обратной связи", "end");
+                        }
+                    });
+                } catch (e) {
+                    debugWrite('currentCallbackForm().ajaxSubmit error', e);
+                    debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2", "start");
+                    try {
+                        crossDomainSubmit(currentCallbackForm());
+                        showThankYou();
+                    } catch (e) {
+                        debugWrite("crossDomainSubmit error", e);
+                    }
+                    debugWrite("Ручная отправка кросс-доменной формы обратной связи Попытка №2", "end");
+                }
+                debugWrite("Отправка формы обратной связи", "end");
+            }
+            return false;
+        });
+
+        page.find(".save").dblclick(function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            showThankYou();
+            return false;
+        });
+
+        debugWrite("createCallbackForm", "end");
+    }
+
+    $(document).bind('pagebeforecreate', function(event, data) {
+        debugWrite("document", "pagebeforecreate");
+        var wrapper = "#saleforce-callback-form-wrapper";
+        if ($(wrapper).length > 0) createCallbackForm(wrapper);
+    });
+
+    $(document).ready(function() {
+        debugWrite("document", "ready");
+        var wrapper = "#saleforce-callback-form-wrapper";
+        if ($(wrapper).length > 0) createCallbackForm(wrapper);
+        // Использование в качестве кода языка значения ранее установленной глобальной переменной $.culture
+        var lang = $.culture || "en";
+
+        debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>", "start");
+        // Проверка встроенной поддержки для <input type="date">
 //		if (!Modernizr.inputtypes.date) {
-			// Если нет встроенной поддержки для <input type="date">,
-			// то заменяем <input type="date"> на <input type="text">
-			if ($.isMobile) {
-				var mask = $.mobiscroll.i18n[ lang ].dateFormat+"yy";
-				$("input[nane='dateFormat']",currentCallbackForm()).val(mask);
-				$("input[type='date']",currentCallbackForm()).each(function(index, element) {
-					// Обработка поля due_date если нет встроенной поддержки для <input type="date">
-					$(element).attr("type","text");
-					$(element).val(dateFormat(mask));
-					$(element).mobiscroll().date(
-							$.extend({},$.mobiscroll.i18n[ lang ],{
-								theme:"ios7",
-								timeFormat:"HH:ii",
-       							timeWheels: 'HHii',
-							}));
-				});	
-			} else {
-				var mask = $.datepicker.regional[ lang ].dateFormat+"yy";
-				$("input[nane='dateFormat']",currentCallbackForm()).val(mask);
-				// и назначаем обработчиком jquery.datepicker
-				$("input[type='date']",currentCallbackForm()).each(function(index, element) {
-					// Обработка поля due_date если нет встроенной поддержки для <input type="date">
-					$(element).attr("type","text"); 
-					$(element).val(dateFormat(mask));
-					$(element).datepicker(
-							$.extend({},$.datepicker.regional[ lang ],{
-								showButtonPanel: true,
-								minDate: 0, 
-								maxDate: "+10M",
-							}));
-				});	
-			}
+        // Если нет встроенной поддержки для <input type="date">,
+        // то заменяем <input type="date"> на <input type="text">
+        if ($.isMobile) {
+            var mask = $.mobiscroll.i18n[lang].dateFormat + "yy";
+            $("input[nane='dateFormat']", currentCallbackForm()).val(mask);
+            $("input[type='date']", currentCallbackForm()).each(function(index, element) {
+                // Обработка поля due_date если нет встроенной поддержки для <input type="date">
+                $(element).attr("type", "text");
+                $(element).val(dateFormat(mask));
+                $(element).mobiscroll().date(
+                    $.extend({}, $.mobiscroll.i18n[lang], {
+                        theme: "ios7",
+                        timeFormat: "HH:ii",
+                        timeWheels: 'HHii',
+                    }));
+            });
+        } else {
+            var mask = $.datepicker.regional[lang].dateFormat + "yy";
+            $("input[nane='dateFormat']", currentCallbackForm()).val(mask);
+            // и назначаем обработчиком jquery.datepicker
+            $("input[type='date']", currentCallbackForm()).each(function(index, element) {
+                // Обработка поля due_date если нет встроенной поддержки для <input type="date">
+                $(element).attr("type", "text");
+                $(element).val(dateFormat(mask));
+                $(element).datepicker(
+                    $.extend({}, $.datepicker.regional[lang], {
+                        showButtonPanel: true,
+                        minDate: 0,
+                        maxDate: "+10M",
+                    }));
+            });
+        }
 //		}
-		debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>","end");
+        debugWrite("Обработка поля date если нет встроенной поддержки для <input type='date'>", "end");
 
-		debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>","start");
-		// Проверка встроенной поддержки для <input type="time">
+        debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>", "start");
+        // Проверка встроенной поддержки для <input type="time">
 //		if (!Modernizr.inputtypes.time) {
-			// Если нет встроенной поддержки для <input type="time">,
-			// то заменяем <input type="date"> на <input type="text">
-			if ($.isMobile) {
-				$("input[type='time']",currentCallbackForm()).each(function(index, element) {
-					// Обработка поля time если нет встроенной поддержки для <input type="time">
-					$(element).attr("type","text");
-					$(element).mobiscroll().time(
-							$.extend({},$.mobiscroll.i18n[ lang ],{
-								theme:"ios7",
-								timeFormat:"HH:ii",
-       							timeWheels: 'HHii',
-							}));
-				});	
-			} else {
-				// и назначаем обработчиком jquery.timepicker
-				$("input[type='time']",currentCallbackForm()).each(function(index, element) {
-					// Обработка поля time если нет встроенной поддержки для <input type="time">
-					$(element).attr("type","text"); 
-					$(element).timepicker(
-							$.extend({},$.timepicker.regional[ lang ],{
-								showButtonPanel: true,
-							}));
-				});	
-			}
+        // Если нет встроенной поддержки для <input type="time">,
+        // то заменяем <input type="date"> на <input type="text">
+        if ($.isMobile) {
+            $("input[type='time']", currentCallbackForm()).each(function(index, element) {
+                // Обработка поля time если нет встроенной поддержки для <input type="time">
+                $(element).attr("type", "text");
+                $(element).mobiscroll().time(
+                    $.extend({}, $.mobiscroll.i18n[lang], {
+                        theme: "ios7",
+                        timeFormat: "HH:ii",
+                        timeWheels: 'HHii',
+                    }));
+            });
+        } else {
+            // и назначаем обработчиком jquery.timepicker
+            $("input[type='time']", currentCallbackForm()).each(function(index, element) {
+                // Обработка поля time если нет встроенной поддержки для <input type="time">
+                $(element).attr("type", "text");
+                $(element).timepicker(
+                    $.extend({}, $.timepicker.regional[lang], {
+                        showButtonPanel: true,
+                    }));
+            });
+        }
 //		}
-		debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>","end");
+        debugWrite("Обработка поля time если нет встроенной поддержки для <input type='time'>", "end");
 
-		debugWrite("Установка маски ввода (999) 999-9999","start");
-		try {
-			$("input[name*='phone']",currentCallbackForm()).mask("(999) 999-9999");
-		} catch (e) {
-			debugWrite('page.find("input[name*=\'phone\']").mask("(999) 999-9999") error',e);
-		}
-		debugWrite("Установка маски ввода (999) 999-9999","end");
-	
-		debugWrite("Установка валидации форм","start");
-		try {
-			currentCallbackForm().validate();
-		} catch (e) {
-			debugWrite('page.find("form").validate() error',e);
-		}
-		debugWrite("Установка валидации форм","end");
-	});
-	var dataAjaxFalse = function(){
-		$("a").attr("data-ajax","false");
-	};
-	$(document).ready(dataAjaxFalse);
-	$(document).ajaxComplete(dataAjaxFalse);
-	$(document).ajaxStop(dataAjaxFalse);
+        debugWrite("Установка маски ввода (999) 999-9999", "start");
+        try {
+            $("input[name*='phone']", currentCallbackForm()).mask("(999) 999-9999");
+        } catch (e) {
+            debugWrite('page.find("input[name*=\'phone\']").mask("(999) 999-9999") error', e);
+        }
+        debugWrite("Установка маски ввода (999) 999-9999", "end");
+
+        debugWrite("Установка валидации форм", "start");
+        try {
+            currentCallbackForm().validate();
+        } catch (e) {
+            debugWrite('page.find("form").validate() error', e);
+        }
+        debugWrite("Установка валидации форм", "end");
+    });
+    var dataAjaxFalse = function() {
+        $("a").attr("data-ajax", "false");
+    };
+    $(document).ready(dataAjaxFalse);
+    $(document).ajaxComplete(dataAjaxFalse);
+    $(document).ajaxStop(dataAjaxFalse);
 })(jQuery);
