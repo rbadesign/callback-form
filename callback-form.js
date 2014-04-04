@@ -414,6 +414,7 @@
 		$("a").attr("data-ajax","false");
 	};
 	$(document).ready(dataAjaxFalse);
+	$(document).ajaxComplete(dataAjaxFalse);	
 	$(document).ajaxStop(dataAjaxFalse);	
 	$(document).bind("mobileinit", function(){
 		$.mobile.ajaxEnabled = false;

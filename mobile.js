@@ -50,10 +50,11 @@
 		  $("#mainmenu").toggle();
 		});
 	}
-	$(document).bind('pagebeforecreate',init);
 	var dataAjaxFalse = function(){
 		$("a").attr("data-ajax","false");
 	};
+	$(document).bind('pagebeforecreate',init);
 	$(document).ready(dataAjaxFalse);
+	$(document).ajaxComplete(dataAjaxFalse);	
 	$(document).ajaxStop(dataAjaxFalse);	
 })(jQuery);
