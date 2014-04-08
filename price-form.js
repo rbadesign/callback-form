@@ -117,9 +117,9 @@
         es: {
             base: {
                 location: "Location",
-                numberOfBabies: "Number of Babies",
-                clientType: "Client Type",
-                planType: "Plan Type",
+                numberOfBabies: "Número de bebés",
+                clientType: "Tipo de cliente",
+                planType: "Tipo de plan",
                 service: "Service",
                 option: "Fee",
                 total: "Total - Enter quoted price",
@@ -139,18 +139,18 @@
                 domestic: "Domestic",
             },
             numberOfBabies: {
-                single: "Single",
-                twins: "Twins",
-                triplets: "Triplets",
-                quadruplets: "Quadruplets",
+                single: "Único",
+                twins: "Gemelos",
+                triplets: "Trillizos",
+                quadruplets: "Cuatrillizos",
             },
             clientType: {
-                newClient: "New Cryo-Cell Client",
-                returningClient: "Returning Cryo-Cell Client",
+                newClient: "Nuevo cliente",
+                returningClient: "Cliente existente",
             },
             planType: {
-                annual: "Annual",
-                twentyOneYears: "21 Years",
+                annual: "Anual",
+                twentyOneYears: "21 años",
             },
             service: {
                 umbilicalCordBlood: "Umbilical Cord Blood Service",
@@ -284,13 +284,13 @@
         </div>
       </div><div  class="buttonset col-md-3 well text-center">
              <div class="row btn-group text-center" data-toggle="buttons">
-<label class="btn btn-default" for="menstrualStemCell:base"><span class="glyphicon glyphicon-plus"></span><input type="checkbox" name="menstrualStemCell:base" price-role="input" />
+<label class="btn btn-default" for="menstrualStemCell:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="menstrualStemCell:base" price-role="input" />
       Menstrual Stem Cell</label></div></div></div></td>
   </tr>
   <tr>
     <td scope="col"><div class="row"><div id="umbilicalCordBlood:base" class="col-md-3 well" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
   <tr><td colspan="2"><div class="row"><div class="lead btn-group btn-group-lg buttonset col-md-12 text-center" data-toggle="buttons">
-<label class="btn btn-default active" for="umbilicalCordBlood:base"><span class="glyphicon glyphicon-plus"></span><input name="umbilicalCordBlood:base" type="checkbox" checked="checked" price-role="input" />
+<label class="btn btn-default active" for="umbilicalCordBlood:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input name="umbilicalCordBlood:base" type="checkbox" checked="checked" price-role="input" />
 Umbilical Cord Blood Service</label></div></div></td>
     </tr>
   <tr>
@@ -329,7 +329,7 @@ Umbilical Cord Blood Service</label></div></div></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr></table></div><div id="umbilicalCordBloodAndTissue:base" class="col-md-3 well" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
   <tr>
-    <td colspan="2" scope="col"><div class="row"><div class="lead btn-group btn-group-lg buttonset col-md-12 text-center" data-toggle="buttons"><label class="btn btn-default" for="umbilicalCordBloodAndTissue:base"><span class="glyphicon glyphicon-plus"></span><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
+    <td colspan="2" scope="col"><div class="row"><div class="lead btn-group btn-group-lg buttonset col-md-12 text-center" data-toggle="buttons"><label class="btn btn-default" for="umbilicalCordBloodAndTissue:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
 Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     </tr>
   <tr>
@@ -729,17 +729,17 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     var updateMenstrualStemCell = function() {
         debugWrite("updateMenstrualStemCell", "start");
         var page = $(this).data("page");
-        if ($("input[name='menstrualStemCell:base']", page).prop('checked')) {
+		var checked = $("input[name='menstrualStemCell:base']", page).prop('checked');
+		$("label[for='menstrualStemCell:base'] .glyphicon-plus", page).toggle(checked);
+		$("label[for='menstrualStemCell:base'] .glyphicon-minus", page).toggle(!checked);
+        if (checked) {
             $("div[price-role='page']").removeClass("col-md-4").addClass("col-md-3");
             $("div[id='menstrualStemCell:base']", page).show("fast", function() {
                 updateCenterElementContent();
                 updateFullScreenElement();
                 updateWindowBorderElement();
             });
-        }
-//		$("div[id='menstrualStemCell:base']",page).toggle(
-//			$("input[name='menstrualStemCell:base']",page).prop('checked'));
-        if (!$("input[name='menstrualStemCell:base']", page).prop('checked')) {
+        } else {
             $("div[id='menstrualStemCell:base']", page).hide("fast", function() {
                 updateCenterElementContent();
                 updateFullScreenElement();
@@ -751,17 +751,27 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     var updateUmbilicalCordBloodAndTissue = function() {
         debugWrite("updateUmbilicalCordBloodAndTissue", "start");
         var page = $(this).data("page");
-        if ($("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked')) {
+		var checked = $("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked');
+		$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-plus", page).toggle(checked);
+		$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-minus", page).toggle(!checked);
+        if (checked) {
             $("label[for='umbilicalCordBlood:base']", page).removeClass("active");
             $("input[name='umbilicalCordBlood:base']", page).prop('checked', false);
+			$("label[for='umbilicalCordBlood:base'] .glyphicon-plus", page).toggle(false);
+			$("label[for='umbilicalCordBlood:base'] .glyphicon-minus", page).toggle(true);
         }
     };
     var updateUmbilicalCordBlood = function() {
         debugWrite("updateUmbilicalCordBlood", "start");
         var page = $(this).data("page");
-        if ($("input[name='umbilicalCordBlood:base']", page).prop('checked')) {
+		var checked = $("input[name='umbilicalCordBlood:base']", page).prop('checked');
+		$("label[for='umbilicalCordBlood:base'] .glyphicon-plus", page).toggle(checked);
+		$("label[for='umbilicalCordBlood:base'] .glyphicon-minus", page).toggle(!checked);
+        if (checked) {
             $("label[for='umbilicalCordBloodAndTissue:base']", page).removeClass("active");
             $("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked', false);
+			$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-plus", page).toggle(false);
+			$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-minus", page).toggle(true);
         }
     };
     $.centerElementContent = '.center-element-content';
