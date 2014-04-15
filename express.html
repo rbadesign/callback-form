@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<table width="640" border="1" cellpadding="0" cellspacing="0">
+<table width="800" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <th width="15%" class="EditingFormLabelCell" scope="row"><label for="first_name">First Name</label>:</th>
     <td colspan="2">
@@ -283,20 +283,23 @@
 <p>&nbsp;</p>
 
 
-<style type="text/css">input[type="submit"]{margin-left:240px !important;padding:8px 24px 8px 24px !important;font-size:24px !important;}</style>
+<style type="text/css">span.EditingFormErrorLabel{color:red !important;}</style>
+<style type="text/css">input[type="submit"]{margin:48px 240px !important;padding:8px 24px 8px 24px !important;font-size:24px !important;}</style>
 <style type="text/css">td.EditingFormValueCell div.EditingFormControlNestedControl{max-width:100% !important;}</style>
+<style type="text/css">td.EditingFormValueCell.Cell6 div.EditingFormControlNestedControl{max-width:50% !important;}</style>
 <style type="text/css">td.EditingFormLabelCell{width:160px !important;}</style>
 <style type="text/css">td.EditingFormLabelCell label{min-width:160px !important;display:block !important;}</style>
-<style type="text/css">td.EditingFormValueCell textarea{width:480px !important;}</style>
+<style type="text/css">td.EditingFormValueCell textarea{width:580px !important;}</style>
 <style type="text/css">td.EditingFormValueCell input{max-width:100% !important;}</style>
+<style type="text/css">td.Cell4{width:120px !important;}</style>
 <style type="text/css">td.Cell4 input{max-width:120px !important;}</style>
-<style type="text/css">td.Cell6 input{max-width:80px !important;}</style>
+<style type="text/css">td.Cell6 input{max-width:60px !important;}</style>
 <style type="text/css">td.Cell6 label{max-width:80px !important;}</style>
 <style type="text/css">td.Cell12 input{max-width:32px !important;}</style>
 $$input:Enroll_CallbackID$$
-<table border="0" cellpadding="0" cellspacing="0" width="640">
+<table border="0" cellpadding="0" cellspacing="0" width="800">
   <tr>
-    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="640">
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="800">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:first_name$$</td>
         <td class="EditingFormValueCell">$$input:first_name$$</td>
@@ -310,7 +313,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="640">
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="800">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:address$$</td>
         <td class="EditingFormValueCell">$$input:address$$</td>
@@ -321,7 +324,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="640">
+    <td scope="row"><table border="0" cellpadding="0" cellspacing="0" width="800">
       <tr>
         <td width="15%" rowspan="2" class="EditingFormLabelCell" >$$label:city$$</td>
         <td width="15%"  class="EditingFormValueCell Cell6">$$input:city$$</td>
@@ -338,35 +341,42 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="6" class="EditingFormLabelCell" >$$label:date_to_contact$$</td>
-        <td class="EditingFormValueCell Cell6">$$input:date_to_contact$$</td>
-        <td rowspan="6" class="EditingFormLabelCell Cell4" >$$label:time_to_contact$$</td>
-        <td class="EditingFormValueCell Cell12">$$input:time_to_contact_hh$$</td>
-        <td class="EditingFormValueCell Cell12">$$input:time_to_contact_mm$$</td>
+        <td class="EditingFormValueCell">$$input:date_to_contact$$</td>
+        </tr>
+      <tr>
+        <td rowspan="5" class="EditingFormValueCell">$$validation:date_to_contact$$</td>
+        </tr>
+    </table></td>
+  </tr><tr>
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="6" class="EditingFormLabelCell" >$$label:time_to_contact$$</td>
+        <td class="EditingFormValueCell Cell4"><span >$$input:time_to_contact$$</span><span style="display:none;">$$input:time_to_contact_hh$$</span><span style="display:none;">$$input:time_to_contact_mm$$</span></td>
         <td class="EditingFormValueCell Cell12">$$input:time_to_contact_ampm$$</td>
+        <td class="EditingFormValueCell Cell4">&nbsp;</td>
       </tr>
       <tr>
-        <td rowspan="5" class="EditingFormValueCell Cell6">$$validation:date_to_contact$$</td>
-        <td colspan="3" class="EditingFormValueCell Cell4"><span style="display:none;">$$input:time_to_contact$$</span></td>
+        <td colspan="3" class="EditingFormValueCell"></td>
       </tr>
       <tr>
-        <td colspan="3" class="EditingFormValueCell Cell4">$$validation:time_to_contact$$</td>
+        <td colspan="3" class="EditingFormValueCell">$$validation:time_to_contact$$</td>
       </tr>
       <tr>
-        <td colspan="3" class="EditingFormValueCell Cell4">$$validation:time_to_contact_hh$$</td>
+        <td colspan="3" class="EditingFormValueCell">$$validation:time_to_contact_hh$$</td>
       </tr>
       <tr>
-        <td colspan="3" class="EditingFormValueCell Cell4">$$validation:time_to_contact_mm$$</td>
+        <td colspan="3" class="EditingFormValueCell">$$validation:time_to_contact_mm$$</td>
       </tr>
       <tr>
-        <td colspan="3" class="EditingFormValueCell Cell4">$$validation:time_to_contact_ampm$$</td>
+        <td colspan="3" class="EditingFormValueCell">$$validation:time_to_contact_ampm$$</td>
       </tr>
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:phone$$</td>
         <td class="EditingFormValueCell">$$input:phone$$</td>
@@ -380,7 +390,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:due_date$$</td>
         <td class="EditingFormValueCell">$$input:due_date$$</td>
@@ -391,7 +401,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:number_of_babies$$</td>
         <td class="EditingFormValueCell">$$input:number_of_babies$$</td>
@@ -402,7 +412,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:client_type$$</td>
         <td class="EditingFormValueCell">$$input:client_type$$</td>
@@ -413,7 +423,7 @@ $$input:Enroll_CallbackID$$
     </table></td>
   </tr>
   <tr>
-    <td scope="row"><table width="640" border="0" cellpadding="0" cellspacing="0">
+    <td scope="row"><table width="800" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td rowspan="2" class="EditingFormLabelCell" >$$label:plan_type$$</td>
         <td class="EditingFormValueCell">$$input:plan_type$$</td>
@@ -431,7 +441,7 @@ $$input:Enroll_CallbackID$$
 
 <style type="text/css">td.EditingFormValueCell input{max-width:80px !important;}</style>
 $$input:Enroll_CallbackID$$
-<table width="640">
+<table width="800">
   <tr>
     <th width="15%" rowspan="2" class="EditingFormLabelCell" scope="row">$$label:first_name$$:</th>
     <td colspan="2" class="EditingFormValueCell">

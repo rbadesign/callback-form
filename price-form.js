@@ -26,7 +26,7 @@
 // 2. На странице, где должна быть размещена форма, поместить <div id='saleforce-callback-form-wrapper'></div>
 /*
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
-    <script type="text/javascript" src="/CMSScripts/Custom/linq.js"></script>
+    <script type="text/javascript" src="/CMSScripts/Custom/linq.min.js"></script>
 //	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/CMSScripts/Custom/jquery.linq.js"></script>
@@ -245,12 +245,12 @@
             },
         },
     };
-    var priceFormHtml = hereDoc(function() { /*!
+    var priceFormHtml = hereDoc(function() {/*!
 <form action="" method="get">
   <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
     	<td>
         <div class="row"><div id="base:location" class="buttonset col-md-3 well text-center">
-        <div class="row btn-group text-center" data-toggle="buttons">
+        <div class="row btn-group text-center" data-toggle="buttons" data-role="controlgroup" data-type="horizontal">
              <label class="btn btn-default active" for="location:domestic">
               <input name="base:location" type="radio" value="domestic" checked="checked" price-role="input" />
                 Domestic</label>
@@ -263,7 +263,7 @@
         </div>
 </div> 
          <div id="base:clientType" class="buttonset col-md-3 well text-center">
-        <div class="row btn-group text-center" data-toggle="buttons">
+        <div class="row btn-group text-center" data-toggle="buttons" data-role="controlgroup" data-type="horizontal">
             <label class="btn btn-default active" for="clientType:newClient">
             <input name="base:clientType" type="radio" value="newClient" checked="checked" price-role="input" />
             New Cryo-Cell Client</label>
@@ -271,7 +271,7 @@
             <input type="radio" name="base:clientType" value="returningClient" price-role="input" />
             Returning Cryo-Cell Client</label>      	        </div>
 </div><div id="base:numberOfBabies" class="buttonset col-md-3 well text-center">
-        <div class="row btn-group text-center" data-toggle="buttons">
+        <div class="row btn-group text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
             <label class="btn btn-default active" for="numberOfBabies:single">
             <input name="base:numberOfBabies" type="radio" value="single" checked="checked" price-role="input" />
             Single</label>
@@ -295,7 +295,7 @@ Umbilical Cord Blood Service</label></div></div></td>
     </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood-base:planType">Plan Type</label></td>
-    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBlood-base:planType" class="buttonset btn-group text-center" data-toggle="buttons">
+    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBlood-base:planType" class="buttonset btn-group text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
             <label class="btn btn-default active" for="service:umbilicalCordBlood-planType:annual">
             <input name="service:umbilicalCordBlood-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
@@ -324,17 +324,17 @@ Umbilical Cord Blood Service</label></div></div></td>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood,option:couponAmount">Coupon Amount</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr>
-  <tr class="info">
+  <tr class="info" data-theme="c">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood-base:total">Total - Enter quoted price</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBlood-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
-  </tr></table></div><div id="umbilicalCordBloodAndTissue:base" class="col-md-3 well" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
+  </tr></table></div><div id="umbilicalCordBloodAndTissue:base" class="col-md-3 well" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed" >
   <tr>
     <td colspan="2" scope="col"><div class="row"><div class="lead btn-group btn-group-lg buttonset col-md-12 text-center" data-toggle="buttons"><label class="btn btn-default" for="umbilicalCordBloodAndTissue:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
 Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue-base:planType">Plan Type</label></td>
-    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBloodAndTissue-base:planType" class="buttonset btn-group text-center" data-toggle="buttons">
+    <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBloodAndTissue-base:planType" class="buttonset btn-group text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
             <label class="btn btn-default active" for="service:umbilicalCordBloodAndTissue-planType:annual">
             <input name="service:umbilicalCordBloodAndTissue-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
@@ -368,7 +368,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue,option:couponAmount">Coupon Amount</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr>
-  <tr class="info">
+  <tr class="info" data-theme="c">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue-base:total">Total - Enter quoted price</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:umbilicalCordBloodAndTissue-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr>
@@ -383,7 +383,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell-base:planType">Plan Type</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
-     <div id="service:menstrualStemCell-base:planType" class="buttonset btn-group text-center" data-toggle="buttons">
+     <div id="service:menstrualStemCell-base:planType" class="buttonset btn-group text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
             <label class="btn btn-default active" for="service:menstrualStemCell-planType:annual">
             <input name="service:menstrualStemCell-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
@@ -410,7 +410,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell,option:couponAmount">Coupon Amount</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell,option:couponAmount" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr>
-  <tr class="info">
+  <tr class="info" data-theme="c">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell-base:total">Total - Enter quoted price</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="service:menstrualStemCell-base:total" type="text" readonly="readonly" price-role="subtotal" /></td>
   </tr>
@@ -467,7 +467,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:couponAmount">Coupon Amount</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:couponAmount" type="text" readonly="readonly" price-role="total" /></td>
   </tr>
-  <tr class="info">
+  <tr class="info" data-theme="c">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:total">Total - Enter quoted price</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:total" type="text" readonly="readonly" price-role="total" /></td>
   </tr>
@@ -475,8 +475,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     </tr>
   </table>
 </form>
-*/
-    });
+*/});
     $.fee = [
         { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1799.00 },
         { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3799.00 },
@@ -755,6 +754,8 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
 		$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-plus", page).toggle(checked);
 		$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-minus", page).toggle(!checked);
         if (checked) {
+            $("span.ui-icon","label[for='umbilicalCordBlood:base']", page).removeClass("ui-icon-checkbox-on").addClass("ui-icon-checkbox-off");
+            $("label[for='umbilicalCordBlood:base']", page).removeClass("ui-checkbox-on").addClass("ui-checkbox-off");
             $("label[for='umbilicalCordBlood:base']", page).removeClass("active");
             $("input[name='umbilicalCordBlood:base']", page).prop('checked', false);
 			$("label[for='umbilicalCordBlood:base'] .glyphicon-plus", page).toggle(false);
@@ -768,6 +769,8 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
 		$("label[for='umbilicalCordBlood:base'] .glyphicon-plus", page).toggle(checked);
 		$("label[for='umbilicalCordBlood:base'] .glyphicon-minus", page).toggle(!checked);
         if (checked) {
+            $("span.ui-icon","label[for='umbilicalCordBloodAndTissue:base']", page).removeClass("ui-icon-checkbox-on").addClass("ui-icon-checkbox-off");
+            $("label[for='umbilicalCordBloodAndTissue:base']", page).removeClass("ui-checkbox-on").addClass("ui-checkbox-off");
             $("label[for='umbilicalCordBloodAndTissue:base']", page).removeClass("active");
             $("input[name='umbilicalCordBloodAndTissue:base']", page).prop('checked', false);
 			$("label[for='umbilicalCordBloodAndTissue:base'] .glyphicon-plus", page).toggle(false);
@@ -829,7 +832,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
             $(wrapper).after(page);
             if ($.isMobile) {
                 $("table", page).each(function(index, element) {
-                    flatTable(element);
+//                    flatTable(element);
                 });
             } else {
 //				$(".buttonset",page).each(function(index, element) {$(element).buttonset();});
