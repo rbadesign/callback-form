@@ -69,9 +69,9 @@
                 base: "Menstrual Stem Cell",
             },
             location: {
-                local: "Local",
+                local: "Tampa",
                 puertoRico: "Puerto Rico",
-                domestic: "In the U.S.",
+                domestic: "U.S.",
             },
             numberOfBabies: {
                 single: "Single",
@@ -112,6 +112,7 @@
                 discount: "Discount",
                 couponAmount: "Coupon Amount",
                 total: "Total",
+                savings: "Your Savings Is",
             },
         },
         es: {
@@ -134,9 +135,9 @@
                 base: "Menstrual Stem Cell",
             },
             location: {
-                local: "Local",
+                local: "Tampa",
                 puertoRico: "Puerto Rico",
-                domestic: "In the U.S.",
+                domestic: "U.S.",
             },
             numberOfBabies: {
                 single: "Único",
@@ -177,6 +178,7 @@
                 discount: "Discount",
                 couponAmount: "Coupon Amount",
                 total: "Total",
+                savings: "Your Savings Is",
             },
         },
         ru: {
@@ -199,12 +201,12 @@
                 base: "Хранение менструальных клеток",
             },
             location: {
-                local: "Рядом",
+                local: "Тампа",
                 puertoRico: "Пуэрто-Рико",
-                domestic: "Территория США",
+                domestic: "США",
             },
             numberOfBabies: {
-                single: "Один ребёнок",
+                single: "Один",
                 twins: "Двойня",
                 triplets: "Тройняшки",
                 quadruplets: "Четверняшки",
@@ -242,80 +244,93 @@
                 discount: "Скидка",
                 couponAmount: "Купон",
                 total: "Итого - стартовый тариф",
+                savings: "Ваша экономия",
             },
         },
     };
     var priceFormHtml = hereDoc(function() {/*!
 <form action="" method="get">
+<p style="width:750px;height:50px;border:0;" >
+Each family’s budget is unique. That’s why we don’t take a one-size-fits-all approach to pricing and payments for cord blood and tissue banking. Calculate your stem cell banking costs and we’ll recommend payment plans that may fit your family’s budget.</p>
 <div class="row">
         <div class="col-md-6">
-
 <div class="row">
         <div class="col-md-12">
-        <div class="row">
-        <div class="col-md-12 text-center panel panel-default">
-        
-        <div id="base:location" class="buttonset" data-toggle="buttons" data-role="controlgroup" data-type="horizontal">
-             <label class="btn btn-default btn-sm btn-block active" for="location:domestic">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-hover table-condensed">
+  <tr>
+    <td width="25%" align="left" class="EditingFormLabelCell" scope="col"><label for="base:location">Location</label></td>
+    <td width="75%" class="EditingFormValueCell" scope="col">
+            <div id="base:location" class="buttonset" data-toggle="buttons" data-role="controlgroup" data-type="horizontal">
+             <label class="btn btn-info active" for="location:domestic">
               <input name="base:location" type="radio" value="domestic" checked="checked" price-role="input" />
                 In the U.S.</label>
-           	<label class="btn btn-default btn-sm btn-block" for="location:local">
+           	<label class="btn btn-info" for="location:local">
                 <input name="base:location" type="radio" value="local" price-role="input" />
                 Local</label>
-            <label class="btn btn-default btn-sm btn-block" for="location:puertoRico">
+            <label class="btn btn-info" for="location:puertoRico">
                 <input type="radio" name="base:location" value="puertoRico" price-role="input" />
                 Puerto Rico</label>
         </div>
-</div> 
-</div> 
-        <div class="row">
-        <div class="col-md-12 text-center panel panel-default">
+</td>
+    </tr>
+  <tr>
+    <td width="25%" align="left" class="EditingFormLabelCell" scope="col"><label for="base:clientType">Client Type</label></td>
+    <td width="75%" class="EditingFormValueCell" scope="col">
          <div id="base:clientType" class="buttonset" data-role="controlgroup" data-type="horizontal" data-toggle="buttons">
-            <label class="btn btn-default btn-sm btn-block active" for="clientType:newClient">
+            <label class="btn btn-info active" for="clientType:newClient">
             <input name="base:clientType" type="radio" value="newClient" checked="checked" price-role="input" />
             New Cryo-Cell Client</label>
-            <label class="btn btn-default btn-sm btn-block" for="clientType:returningClient">
+            <label class="btn btn-info" for="clientType:returningClient">
             <input type="radio" name="base:clientType" value="returningClient" price-role="input" />
             Returning Cryo-Cell Client</label>      	        </div>
-</div> 
-</div> 
-        <div class="row">
-        <div class="col-md-12 text-center panel panel-default">
-            <div id="base:numberOfBabies" class="buttonset" data-role="controlgroup" data-type="horizontal" data-toggle="buttons">
-            <label class="btn btn-default btn-sm btn-block active" for="numberOfBabies:single">
+</td>
+    </tr>
+  <tr>
+    <td width="25%" align="left" class="EditingFormLabelCell" scope="col"><label for="base:numberOfBabies">Number of Babies</label></td>
+    <td width="75%" class="EditingFormValueCell" scope="col">
+                <div id="base:numberOfBabies" class="buttonset" data-role="controlgroup" data-type="horizontal" data-toggle="buttons">
+            <label class="btn btn-info active" for="numberOfBabies:single">
             <input name="base:numberOfBabies" type="radio" value="single" checked="checked" price-role="input" />
             Single</label>
-            <label class="btn btn-default btn-sm btn-block" for="numberOfBabies:twins">
+            <label class="btn btn-info" for="numberOfBabies:twins">
             <input type="radio" name="base:numberOfBabies" value="twins" price-role="input"  />
             Twins</label>      	
-            <label class="btn btn-default btn-sm btn-block" for="numberOfBabies:triplets">
+            <label class="btn btn-info" for="numberOfBabies:triplets">
             <input type="radio" name="base:numberOfBabies" value="triplets" price-role="input"  />
             Triplets</label>      	
         </div>
+</td>
+    </tr>
+  <tr>
+    <td width="25%" align="left" class="EditingFormLabelCell" scope="col"></td>
+    <td width="75%" class="EditingFormValueCell" scope="col">
+    </td>
+    </tr></table>
 </div> 
 </div> 
         <div class="row panel panel-default" style="display:none;">
         <div class="col-md-12 text-center">
              <div class="buttonset" data-toggle="buttons">
-<label class="btn btn-default btn-sm btn-block" for="menstrualStemCell:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="menstrualStemCell:base" price-role="input" />
+<label class="btn btn-info" for="menstrualStemCell:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="menstrualStemCell:base" price-role="input" />
       Menstrual Stem Cell</label></div>
 </div> 
 </div> 
         <div class="row">
         <div class="col-md-12 text-center panel panel-default">
 
-      <div id="umbilicalCordBlood:base" class="" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
+      <div id="umbilicalCordBlood:base" class="" price-role="page">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-hover table-condensed">
   <tr><td colspan="2"><div class="row"><div class="lead-lg buttonset col-md-12 text-center" data-toggle="buttons">
-<label class="btn btn-default btn-sm btn-block active" for="umbilicalCordBlood:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input name="umbilicalCordBlood:base" type="checkbox" checked="checked" price-role="input" />
+<label class="btn btn-info active btn-block" for="umbilicalCordBlood:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input name="umbilicalCordBlood:base" type="checkbox" checked="checked" price-role="input" />
 Umbilical Cord Blood Service</label></div></div></td>
     </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBlood-base:planType">Plan Type</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBlood-base:planType" class="buttonset text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
-            <label class="btn btn-default btn-sm btn-block active" for="service:umbilicalCordBlood-planType:annual">
+            <label class="btn btn-info active" for="service:umbilicalCordBlood-planType:annual">
             <input name="service:umbilicalCordBlood-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
-            <label class="btn btn-default btn-sm btn-block" for="service:umbilicalCordBlood-planType:twentyOneYears">
+            <label class="btn btn-info" for="service:umbilicalCordBlood-planType:twentyOneYears">
             <input type="radio" name="service:umbilicalCordBlood-base:planType" value="twentyOneYears" price-role="input" />
             Twenty One Years</label></div></td>
   </tr>
@@ -348,18 +363,18 @@ Umbilical Cord Blood Service</label></div></div></td>
 </div> 
         <div class="row">
         <div class="col-md-12 text-center panel panel-default">
-  <div id="umbilicalCordBloodAndTissue:base" class="" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed" >
+  <div id="umbilicalCordBloodAndTissue:base" class="" price-role="page"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-hover table-condensed" >
   <tr>
-    <td colspan="2" scope="col"><div class="row"><div class="lead-lg buttonset col-md-12 text-center" data-toggle="buttons"><label class="btn btn-default btn-sm btn-block" for="umbilicalCordBloodAndTissue:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
+    <td colspan="2" scope="col"><div class="row"><div class="lead-lg buttonset col-md-12 text-center" data-toggle="buttons"><label class="btn btn-info btn-block" for="umbilicalCordBloodAndTissue:base"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span><input type="checkbox" name="umbilicalCordBloodAndTissue:base" price-role="input" />
 Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:umbilicalCordBloodAndTissue-base:planType">Plan Type</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col"><div id="service:umbilicalCordBloodAndTissue-base:planType" class="buttonset text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
-            <label class="btn btn-default btn-sm btn-block active" for="service:umbilicalCordBloodAndTissue-planType:annual">
+            <label class="btn btn-info active" for="service:umbilicalCordBloodAndTissue-planType:annual">
             <input name="service:umbilicalCordBloodAndTissue-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
-            <label class="btn btn-default btn-sm btn-block" for="service:umbilicalCordBloodAndTissue-planType:twentyOneYears">
+            <label class="btn btn-info" for="service:umbilicalCordBloodAndTissue-planType:twentyOneYears">
             <input type="radio" name="service:umbilicalCordBloodAndTissue-base:planType" value="twentyOneYears" price-role="input" />
             Twenty One Years</label></div></td>
   </tr>
@@ -400,7 +415,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
         <div class="row" style="display:none;">
         <div class="col-md-12 text-center">
 <div id="menstrualStemCell:base" class="" price-role="page">
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-hover table-condensed">
   <tr>
     <td colspan="2" scope="col"><div class="row"><div class="lead col-md-12 text-center">
      <label class="" for="menstrualStemCell:base">
@@ -410,7 +425,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="service:menstrualStemCell-base:planType">Plan Type</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
      <div id="service:menstrualStemCell-base:planType" class="buttonset text-center" data-toggle="buttons"  data-role="controlgroup" data-type="horizontal">
-            <label class="btn btn-default btn-sm btn-block active" for="service:menstrualStemCell-planType:annual">
+            <label class="btn btn-info active" for="service:menstrualStemCell-planType:annual">
             <input name="service:menstrualStemCell-base:planType" type="radio" value="annual" checked="checked" price-role="input" />
             Annual</label>
         </div></td>
@@ -443,14 +458,12 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
 </table>
 </div></div></div></div>
 
-</div> 
-</div> 
       <div class="col-md-6">
         <div class="row">
       
       <div class="col-md-12 panel panel-default">
       <div id="summary:base" class="row" price-role="page">
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-hover table-condensed">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-hover table-condensed">
   <tr>
     <td colspan="2" scope="col" class="lead"><div class="row"><div class="lead col-md-12 text-center"><label for="summary:base">Summary</label></div></div></td>
     </tr>
@@ -465,7 +478,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
       <input name="summary:planType,service:umbilicalCordBloodAndTissue" type="text" readonly="readonly" price-role="total" /></td>
   </tr>
-  <tr>
+  <tr style="display:none;">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:planType,service:menstrualStemCell">Menstrual Stem Cell Plan Type</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
       <input name="summary:planType,service:menstrualStemCell" type="text" readonly="readonly" price-role="total" /></td>
@@ -480,7 +493,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
       <input name="summary:tissueProcessingAndTesting" type="text" readonly="readonly" price-role="total" /></td>
   </tr>
-  <tr>
+  <tr style="display:none;">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:menstrualProcessingAndTesting">Menstrual Processing & Testing Fee</label></td>
     <td width="50%" class="EditingFormValueCell" scope="col">
       <input name="summary:menstrualProcessingAndTesting" type="text" readonly="readonly" price-role="total" /></td>
@@ -495,73 +508,81 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
   </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:discount">Discount</label></td>
-    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:discount" type="text" readonly="readonly" price-role="total" /></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:discount" type="number" price-role="argument" min="0" max="100" />
+    %</td>
   </tr>
   <tr>
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:couponAmount">Coupon Amount</label></td>
-    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:couponAmount" type="text" readonly="readonly" price-role="total" /></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:couponAmount" type="number"  price-role="argument" min="0" />
+    $</td>
   </tr>
   <tr class="info" data-theme="c">
     <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:total">Total - Enter quoted price</label></td>
+
     <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:total" type="text" readonly="readonly" price-role="total" /></td>
   </tr>
+  <tr class="danger" data-theme="c">
+    <td width="50%" align="left" class="EditingFormLabelCell" scope="col"><label for="summary:savings">Your Savings</label></td>
+    <td width="50%" class="EditingFormValueCell" scope="col"><input name="summary:savings" type="text" readonly="readonly" price-role="total" /></td>
+  </tr>
 </table></div></div>
+</div>
 </div>
 </div>
 </form>
 */});
     $.fee = [
-        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1799.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3799.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3418.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 7218.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 5037.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10637.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1619.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3419.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3238.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 6838.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 4857.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10257.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1799.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3799.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3418.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 7218.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 5037.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10637.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1619.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3419.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3238.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 6838.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 4857.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10257.00 },
-        { clientType: "*", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 575.00 },
-        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 2575.00 },
-        { clientType: "*", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1150.00 },
-        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 5150.00 },
-        { clientType: "*", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1725.00 },
-        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 7725.00 },
-        { clientType: "newClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 1099.00 },
-        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3925.00 },
-        { clientType: "returningClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 989.00 },
-        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3825.00 },
-        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 125.00 },
-        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
-        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 250.00 },
-        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
-        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 375.00 },
-        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00 },
-        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 250.00 },
-        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
-        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 500.00 },
-        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
-        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 750.00 },
-        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00 },
-        { planType: "annual", service: "menstrualStemCell", option: "annualStorage", value: 125.00 },
-        { planType: "twentyOneYears", service: "menstrualStemCell", option: "annualStorage", value: 0.00 },
-        { location: "local", option: "medicalCourier", value: 50.00 },
-        { location: "puertoRico", option: "medicalCourier", value: 200.00 },
-        { location: "domestic", option: "medicalCourier", value: 150.00 }
+        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1799.00, default: 1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3799.00, default: 3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3418.00, default: 2*1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 7218.00, default: 2*3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 5037.00, default: 3*1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10637.00, default: 3*3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 1619.00, default: 1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3419.00, default: 3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 3238.00, default: 2*1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 6838.00, default: 2*3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 4857.00, default: 3*1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "bloodProcessingAndTesting", value: 10257.00, default: 3*3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1799.00, default: 1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3799.00, default: 3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3418.00, default: 2*1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 7218.00, default: 2*3799.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 5037.00, default: 3*1799.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10637.00, default: 3*3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 1619.00, default: 1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3419.00, default: 3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 3238.00, default: 2*1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 6838.00, default: 2*3799.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 4857.00, default: 3*1799.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "bloodProcessingAndTesting", value: 10257.00, default: 3*3799.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 575.00, default: 575.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 2575.00, default: 2575.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1150.00, default: 2*575.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 5150.00, default: 2*2575.00 },
+        { clientType: "*", planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 1725.00, default: 3*575.00 },
+        { clientType: "*", planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "tissueProcessingAndTesting", value: 7725.00, default: 3*2575.00 },
+        { clientType: "newClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 1099.00, default: 1099.00 },
+        { clientType: "newClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3925.00, default: 3925.00 },
+        { clientType: "returningClient", planType: "annual", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 989.00, default: 1099.00 },
+        { clientType: "returningClient", planType: "twentyOneYears", numberOfBabies: "*", service: "menstrualStemCell", option: "menstrualProcessingAndTesting", value: 3825.00, default: 3925.00 },
+        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 125.00, default: 125.00 },
+        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00, default: 21*125.00 },
+        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 250.00, default: 2*125.00 },
+        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00, default: 2*21*125.00 },
+        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 375.00, default: 3*125.00 },
+        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBlood", option: "annualStorage", value: 0.00, default: 3*21*125.00 },
+        { planType: "annual", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 250.00, default: 250.00 },
+        { planType: "twentyOneYears", numberOfBabies: "single", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00, default: 21*250.00 },
+        { planType: "annual", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 500.00, default: 2*250.00 },
+        { planType: "twentyOneYears", numberOfBabies: "twins", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00, default: 2*21*250.00 },
+        { planType: "annual", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 750.00, default: 3*250.00 },
+        { planType: "twentyOneYears", numberOfBabies: "triplets", service: "umbilicalCordBloodAndTissue", option: "annualStorage", value: 0.00, default: 3*21*250.00 },
+        { planType: "annual", service: "menstrualStemCell", option: "annualStorage", value: 125.00, default: 125.00 },
+        { planType: "twentyOneYears", service: "menstrualStemCell", option: "annualStorage", value: 0.00, default: 125.00 },
+        { location: "local", option: "medicalCourier", value: 50.00, default: 150.00 },
+        { location: "puertoRico", option: "medicalCourier", value: 200.00, default: 200.00 },
+        { location: "domestic", option: "medicalCourier", value: 150.00, default: 150.00 }
     ];
 
     function hereDoc(f) {
@@ -622,6 +643,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
     }
 
     var updatePriceForm = function() {
+		$("input[price-role='argument']").off('change');
         var lang = $(document).data("lang");
         var fee = $(document).data("fee");
         var columns = $(document).data("columns");
@@ -631,42 +653,32 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
         var base = {};
         $("input[price-role='input'][type='radio'][name^='base:']:checked").each(function(index, element) {
             var b = $(element).attr("name").split(":");
-            debugWrite("b[0]", b[0]);
-            debugWrite("b[1]", b[1]);
             base[b[0]] = base[b[0]] || {};
             base[b[0]][b[1]] = $(element).attr("value");
         });
         $("input[price-role='subtotal']").each(function(index, input) {
             for (var prop in base["base"]) debugWrite("base['base'][" + prop + "]", base["base"][prop]);
-            debugWrite("$(input).attr('name')", $(input).attr("name"));
             var context = $.extend({}, base);
             context["base"] = $.extend({}, base["base"]);
             var names = $(input).attr("name").split("-");
             names[0].split(",").forEach(function(item) {
                 var a = item.split(":");
-                debugWrite("a[0]", a[0]);
-                debugWrite("a[1]", a[1]);
                 context["base"][a[0]] = a[1];
             });
             $("input[price-role='input'][type='radio']:not([name^='base:']):checked").each(function(index, element) {
                 var path = {};
                 var names = $(element).attr("name").split("-");
-                debugWrite("names[0]", names[0]);
                 names[0].split(",").forEach(function(item) {
                     var a = item.split(":");
-                    debugWrite("a[0]", a[0]);
-                    debugWrite("a[1]", a[1]);
-                    path[a[0]] = a[1];
+                     path[a[0]] = a[1];
                 });
                 if (like(path, context["base"])) {
                     var b = names[1].split(":");
-                    debugWrite("b[1]", b[1]);
                     context["base"][b[1]] = $(element).attr("value");
                 }
             });
             for (var prop in context["base"]) debugWrite("context['base'][" + prop + "]", context["base"][prop]);
             var value = Enumerable.From(fee).Where(function(x) { return like(context["base"], x); }).Sum(function(x) { return x.value; });
-            debugWrite("value", value);
             if (value != $(input).val()) {
                 $(input).val(value);
                 $("div[id='" + $(input).attr("name") + "']").shuffleLetters({
@@ -676,7 +688,9 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
         });
         var totals = [];
         var subtotals = {};
+        var subdefaults = {};
         for (var prop in columns[lang].option) subtotals[prop] = [];
+        for (var prop in columns[lang].option) subdefaults[prop] = [];
         for (var item in columns[lang].service) {
             if ($("input[name='" + item + ":base']:checked").length > 0) {
                 var service = {};
@@ -687,13 +701,10 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
                     var names = $(element).attr("name").split("-");
                     names[0].split(",").forEach(function(item) {
                         var a = item.split(":");
-                        debugWrite("a[0]", a[0]);
-                        debugWrite("a[1]", a[1]);
                         path[a[0]] = a[1];
                     });
                     if (like(path, service)) {
                         var b = names[1].split(":");
-                        debugWrite("b[1]", b[1]);
                         where[b[1]] = $(element).attr("value");
                     }
                 });
@@ -707,6 +718,9 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
                     subtotals[prop].push(Enumerable.From(fee)
                         .Where(function(x) { return like(where, x); })
                         .Sum(function(x) { return x.value; }));
+                    subdefaults[prop].push(Enumerable.From(fee)
+                        .Where(function(x) { return like(where, x); })
+                        .Sum(function(x) { return x.default; }));
                 }
             } else {
                 totals.push({
@@ -716,13 +730,7 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
                 });
             }
         }
-        debugWrite('subtotals["discount"]', subtotals["discount"]);
-        debugWrite('subtotals["couponAmount"]', subtotals["couponAmount"]);
-        debugWrite('subtotals["annualStorage"]', subtotals["annualStorage"]);
-        debugWrite('subtotals["bloodProcessingAndTesting"]', subtotals["bloodProcessingAndTesting"]);
-        debugWrite('subtotals["tissueProcessingAndTesting"]', subtotals["tissueProcessingAndTesting"]);
-        debugWrite('subtotals["menstrualProcessingAndTesting"]', subtotals["menstrualProcessingAndTesting"]);
-        debugWrite('subtotals["medicalCourier"]', subtotals["medicalCourier"]);
+
         var summary = {
             discount: Enumerable.From(subtotals["discount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
             couponAmount: Enumerable.From(subtotals["couponAmount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
@@ -732,17 +740,32 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
             tissueProcessingAndTesting: Enumerable.From(subtotals["tissueProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
             menstrualProcessingAndTesting: Enumerable.From(subtotals["menstrualProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
         };
+        var defaults = {
+            discount: Enumerable.From(subdefaults["discount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
+            couponAmount: Enumerable.From(subdefaults["couponAmount"]).Aggregate(0, function(seed, x) { return Math.min(seed, x); }),
+            medicalCourier: Enumerable.From(subdefaults["medicalCourier"]).Aggregate(Enumerable.From(subdefaults["medicalCourier"]).FirstOrDefault(0), function(seed, x) { return Math.min(seed, x); }),
+            annualStorage: Enumerable.From(subdefaults["annualStorage"]).Aggregate(0, function(seed, x) { return (seed + x); }),
+            bloodProcessingAndTesting: Enumerable.From(subdefaults["bloodProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+            tissueProcessingAndTesting: Enumerable.From(subdefaults["tissueProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+            menstrualProcessingAndTesting: Enumerable.From(subdefaults["menstrualProcessingAndTesting"]).Aggregate(0, function(seed, x) { return Math.max(seed, x); }),
+        };
         var values = [];
+        var values2 = [];
         for (var prop in summary) {
             totals.push({
                 summary: prop,
                 value: summary[prop]
             });
             values.push(summary[prop]);
+            values2.push(defaults[prop]);
         }
         totals.push({
             summary: "total",
-            value: Enumerable.From(values).Sum()
+            value: Math.floor(Enumerable.From(values).Sum()*(100-parseFloat($("input[name='summary:discount']").val()||0))/100 - parseFloat($("input[name='summary:couponAmount']").val()||0))
+        });
+        totals.push({
+            summary: "savings",
+            value: Enumerable.From(values2).Sum() - Math.floor(Enumerable.From(values).Sum()*(100-parseFloat($("input[name='summary:discount']").val()||0))/100 - parseFloat($("input[name='summary:couponAmount']").val()||0))
         });
         $("input[price-role='total']").each(function(index, input) {
             var where = {};
@@ -758,6 +781,12 @@ Umbilical Cord Blood and Cord Tissue Service</label></div></div></td>
                 });
             }
         });
+		$("input[price-role='argument']").on('change',function(){
+			$("input[name='summary:total'").val(Math.floor(Enumerable.From(values).Sum()*(100-parseFloat($("input[name='summary:discount']").val()||0))/100 - parseFloat($("input[name='summary:couponAmount']").val()||0)));
+			$("input[name='summary:savings'").val(Enumerable.From(values2).Sum() - Math.floor(Enumerable.From(values).Sum()*(100-parseFloat($("input[name='summary:discount']").val()||0))/100 - parseFloat($("input[name='summary:couponAmount']").val()||0)));
+		    $("div[id='summary:total']").shuffleLetters({ text: $("input[name='summary:total'").val() });
+		    $("div[id='summary:savings']").shuffleLetters({ text: $("input[name='summary:savings'").val() });
+		});
     };
     var updateMenstrualStemCell = function() {
         debugWrite("updateMenstrualStemCell", "start");

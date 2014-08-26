@@ -1,2 +1,16 @@
 /* CSS Document */
-
+.btn-info {
+background-image: -webkit-linear-gradient(top,#c4e3f3 0,#c4e3f3 100%);
+background-image: -o-linear-gradient(top,#c4e3f3 0,#c4e3f3 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(#c4e3f3),to(#c4e3f3));
+background-image: linear-gradient(to bottom,#c4e3f3 0,#c4e3f3 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff#c4e3f3', endColorstr='#ff#c4e3f3', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+background-repeat: repeat-x;
+border-color: #28a4c9;
+}
+.btn-info {
+color: #000;
+background-color: #5bc0de;
+border-color: #46b8da;
+}
